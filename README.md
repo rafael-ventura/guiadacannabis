@@ -1,59 +1,57 @@
-# GuiaCannabis
+# Guia de Cultivo de Cannabis
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+Um guia completo e prático para iniciantes no cultivo de cannabis. Aprenda desde o básico até técnicas avançadas de forma clara e objetiva.
 
-## Development server
+## 🚀 Deploy no Vercel
 
-To start a local development server, run:
+Este projeto está configurado para deploy automático no Vercel.
 
-```bash
-ng serve
-```
+### Configuração
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+1. **Build Command**: `npm run build:vercel`
+2. **Output Directory**: `dist/guia-cannabis`
+3. **Install Command**: `npm install`
 
-## Code scaffolding
+### Arquivos de Configuração
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- `vercel.json` - Configuração do Vercel
+- `package.json` - Scripts de build
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🛠️ Desenvolvimento Local
 
 ```bash
-ng generate --help
+# Instalar dependências
+npm install
+
+# Servidor de desenvolvimento
+npm start
+
+# Build para produção
+npm run build
+
+# Build para Vercel
+npm run build:vercel
 ```
 
-## Building
+## 📱 Características
 
-To build the project run:
+- ✅ **Totalmente Responsivo**
+- ✅ **Anônimo e Seguro**
+- ✅ **Conteúdo Científico**
+- ✅ **Interface Moderna**
+- ✅ **Navegação Intuitiva**
 
-```bash
-ng build
-```
+## 🔒 Privacidade
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Este guia é totalmente anônimo. Não coletamos dados pessoais, não mostramos rostos e não compartilhamos informações. Nosso foco é apenas no conhecimento científico e prático.
 
-## Running unit tests
+## ⚖️ Uso Responsável
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Este conteúdo é puramente educacional e científico. Consulte sempre as leis locais e use as informações de forma responsável e legal em sua jurisdição.
 
-```bash
-ng test
-```
+## 🌱 Tecnologias
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular 19
+- TypeScript
+- SCSS
+- PWA Support

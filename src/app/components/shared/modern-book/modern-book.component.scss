@@ -1,0 +1,177 @@
+// Proteção Legal - Estilo Moderno e Confiável
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.legal-protection-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-2xl;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-lg;
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+
+  .legal-icon {
+    font-size: 4rem;
+    margin-bottom: $spacing-lg;
+    display: block;
+  }
+
+  .legal-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $gray-900;
+    margin-bottom: $spacing-md;
+    font-family: $font-display;
+
+    @include mobile {
+      font-size: 2rem;
+    }
+  }
+
+  .legal-subtitle {
+    font-size: $font-size-large;
+    color: $gray-600;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.legal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-xl;
+  margin-bottom: $spacing-3xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.legal-card {
+  background: $white;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  text-align: center;
+  box-shadow: $shadow-md;
+  border: 1px solid $gray-200;
+  transition: all $transition-normal;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, $primary-green 0%, $cannabis-purple 100%);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-xl;
+    border-color: $primary-green-light;
+  }
+
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: $spacing-lg;
+    display: block;
+  }
+
+  .card-title {
+    font-size: $font-size-h4;
+    font-weight: 600;
+    color: $gray-900;
+    margin-bottom: $spacing-md;
+    font-family: $font-display;
+  }
+
+  .card-description {
+    font-size: $font-size-base;
+    color: $gray-600;
+    line-height: 1.6;
+    margin-bottom: $spacing-lg;
+  }
+
+  .card-badge {
+    display: inline-block;
+    background: $primary-green-lightest;
+    color: $primary-green-dark;
+    padding: $spacing-xs $spacing-md;
+    border-radius: $border-radius-full;
+    font-size: $font-size-small;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.privacy-section,
+.responsibility-section {
+  background: $white;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  margin-bottom: $spacing-xl;
+  box-shadow: $shadow-md;
+  border-left: 4px solid $primary-green;
+
+  h3 {
+    font-size: $font-size-h4;
+    font-weight: 600;
+    color: $gray-900;
+    margin-bottom: $spacing-md;
+    font-family: $font-display;
+  }
+
+  p {
+    font-size: $font-size-base;
+    color: $gray-600;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+.privacy-section {
+  border-left-color: $cannabis-purple;
+}
+
+.responsibility-section {
+  border-left-color: $earth-brown;
+}
+
+// Responsividade
+@include mobile {
+  .legal-protection-container {
+    padding: $spacing-lg;
+  }
+
+  .legal-header {
+    margin-bottom: $spacing-2xl;
+
+    .legal-icon {
+      font-size: 3rem;
+    }
+  }
+
+  .legal-grid {
+    margin-bottom: $spacing-2xl;
+  }
+
+  .legal-card {
+    padding: $spacing-lg;
+  }
+
+  .privacy-section,
+  .responsibility-section {
+    padding: $spacing-lg;
+  }
+}

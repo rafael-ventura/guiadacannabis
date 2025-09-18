@@ -3,6 +3,11 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
     loadComponent: () => import('./components/pages/home-page/home-page.component').then(m => m.HomePageComponent)
   },
   {
@@ -10,8 +15,8 @@ export const routes: Routes = [
     loadComponent: () => import('./components/pages/chapters-page/chapters-page.component').then(m => m.ChaptersPageComponent)
   },
   {
-    path: 'chapters/:id',
-    loadComponent: () => import('./components/chapters/chapter-01/chapter-01.component').then(m => m.Chapter01Component)
+    path: '1-introducao-cannabis',
+    loadComponent: () => import('./components/pages/chapter1-page/chapter1-page.component').then(m => m.Chapter1PageComponent)
   },
   {
     path: 'search',
@@ -27,6 +32,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'home'
   }
 ];

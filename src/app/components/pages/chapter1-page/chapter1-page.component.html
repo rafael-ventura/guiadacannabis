@@ -1,0 +1,208 @@
+<!-- Capítulo 1: O que é Cannabis? -->
+<div class="chapter-page">
+  <!-- Header do Capítulo -->
+  <header class="chapter-header">
+    <div class="container">
+      <div class="chapter-info">
+        <div class="chapter-meta">
+          <span class="chapter-number">Capítulo 1</span>
+          <span class="chapter-difficulty">{{ chapterData.difficulty }}</span>
+          <span class="chapter-time">{{ chapterData.estimatedTime }}</span>
+        </div>
+        <h1 class="chapter-title">{{ chapterData.title }}</h1>
+        <p class="chapter-subtitle">{{ chapterData.subtitle }}</p>
+        
+        <!-- Barra de Progresso -->
+        <div class="progress-container">
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="chapterData.progress"></div>
+          </div>
+          <span class="progress-text">{{ chapterData.progress }}% concluído</span>
+        </div>
+      </div>
+      
+      <!-- Navegação -->
+      <div class="chapter-navigation">
+        <button class="nav-btn prev-btn" (click)="goToPreviousChapter()">
+          <i class="icon">←</i>
+          Anterior
+        </button>
+        <button class="nav-btn home-btn" (click)="goToHome()">
+          <i class="icon">🏠</i>
+          Início
+        </button>
+        <button class="nav-btn next-btn" (click)="goToNextChapter()">
+          Próximo
+          <i class="icon">→</i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="chapter-content">
+    <div class="container">
+      <div class="content-wrapper">
+        
+        <!-- Conteúdo em Markdown -->
+        <article class="markdown-content" [innerHTML]="markdownContent"></article>
+        
+        <!-- Dicas -->
+        <div class="tips-section" *ngIf="tips.length > 0">
+          <h3 class="section-title">
+            <i class="icon">💡</i>
+            Dicas Importantes
+          </h3>
+          <div class="tips-grid">
+            <div class="tip-card" *ngFor="let tip of tips" 
+                 [@fadeInUp] 
+                 (click)="onElementClick($event)">
+              <div class="tip-icon">{{ tip.icon }}</div>
+              <div class="tip-content">
+                <p>{{ tip.content }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Avisos -->
+        <div class="warnings-section" *ngIf="warnings.length > 0">
+          <h3 class="section-title">
+            <i class="icon">⚠️</i>
+            Avisos Importantes
+          </h3>
+          <div class="warnings-grid">
+            <div class="warning-card" 
+                 *ngFor="let warning of warnings" 
+                 [class]="'warning-' + warning.type"
+                 [@fadeInUp] 
+                 (click)="onElementClick($event)">
+              <div class="warning-icon">{{ warning.icon }}</div>
+              <div class="warning-content">
+                <p>{{ warning.content }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seções do Capítulo -->
+        <div class="sections-container">
+          <div class="section-card" 
+               *ngFor="let section of sections; let i = index" 
+               [id]="section.id"
+               [@fadeInUp] 
+               (click)="onElementClick($event)">
+            <div class="section-header">
+              <span class="section-number">{{ i + 1 }}</span>
+              <h3 class="section-title">{{ section.title }}</h3>
+            </div>
+            <div class="section-content">
+              <p>{{ section.content }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Elementos Interativos -->
+        <div class="interactive-elements">
+          
+          <!-- Quiz Simples -->
+          <div class="quiz-container" [@fadeInUp]>
+            <h3 class="quiz-title">Teste Seu Conhecimento</h3>
+            <div class="quiz-question">
+              <p>Qual é o nome científico da cannabis?</p>
+              <div class="quiz-options">
+                <button class="quiz-option" (click)="onElementClick($event)">Cannabis indica</button>
+                <button class="quiz-option correct" (click)="onElementClick($event)">Cannabis sativa L.</button>
+                <button class="quiz-option" (click)="onElementClick($event)">Cannabis ruderalis</button>
+                <button class="quiz-option" (click)="onElementClick($event)">Cannabis hybrida</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Interativa -->
+          <div class="timeline-container" [@fadeInUp]>
+            <h3 class="timeline-title">Linha do Tempo da Cannabis</h3>
+            <div class="timeline">
+              <div class="timeline-item" *ngFor="let item of timelineItems; let i = index" 
+                   [@fadeInLeft] 
+                   (click)="onElementClick($event)">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                  <span class="timeline-year">{{ item.year }}</span>
+                  <p class="timeline-text">{{ item.event }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comparação de Tipos -->
+          <div class="comparison-container" [@fadeInUp]>
+            <h3 class="comparison-title">Comparação dos Tipos de Cannabis</h3>
+            <div class="comparison-grid">
+              <div class="comparison-card" *ngFor="let type of cannabisTypes" 
+                   [@fadeInUp] 
+                   (click)="onElementClick($event)">
+                <div class="comparison-header">
+                  <h4>{{ type.name }}</h4>
+                  <span class="comparison-icon">{{ type.icon }}</span>
+                </div>
+                <div class="comparison-content">
+                  <div class="comparison-item">
+                    <strong>Altura:</strong> {{ type.height }}
+                  </div>
+                  <div class="comparison-item">
+                    <strong>Folhas:</strong> {{ type.leaves }}
+                  </div>
+                  <div class="comparison-item">
+                    <strong>Efeitos:</strong> {{ type.effects }}
+                  </div>
+                  <div class="comparison-item">
+                    <strong>Uso:</strong> {{ type.usage }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- GIFs e Animações -->
+        <div class="media-section">
+          <div class="gif-container" [@fadeInUp]>
+            <h3 class="media-title">Crescimento da Cannabis</h3>
+            <div class="gif-wrapper">
+              <img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" 
+                   alt="Animação do crescimento da cannabis" 
+                   class="chapter-gif">
+              <div class="gif-overlay">
+                <p>Veja como a cannabis cresce desde a semente até a planta adulta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer do Capítulo -->
+  <footer class="chapter-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-actions">
+          <button class="btn-secondary" (click)="goToPreviousChapter()">
+            <i class="icon">←</i>
+            Capítulo Anterior
+          </button>
+          <button class="btn-primary" (click)="goToNextChapter()">
+            Próximo Capítulo
+            <i class="icon">→</i>
+          </button>
+        </div>
+        <div class="footer-info">
+          <p>Capítulo 1 de 21 • Tempo estimado: {{ chapterData.estimatedTime }}</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

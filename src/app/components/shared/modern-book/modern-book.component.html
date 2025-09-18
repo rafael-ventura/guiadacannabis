@@ -1,0 +1,43 @@
+<div class="legal-protection-container">
+  <!-- Header da Proteção Legal -->
+  <div class="legal-header">
+    <div class="legal-icon">🌱</div>
+    <h2 class="legal-title">Cultivo Seguro e Legal</h2>
+    <p class="legal-subtitle">Informações para cultivo responsável e dentro da legalidade</p>
+  </div>
+
+  <!-- Grid de Proteções -->
+  <div class="legal-grid">
+    <div class="legal-card" *ngFor="let protection of legalProtections">
+      <div class="card-icon">{{ protection.icon }}</div>
+      <h3 class="card-title">{{ protection.title }}</h3>
+      <p class="card-description">{{ protection.description }}</p>
+      <div class="card-badge">{{ protection.badge }}</div>
+    </div>
+  </div>
+
+  <!-- Seção de Privacidade -->
+  <div class="privacy-section">
+    <div class="privacy-content">
+      <h3>🔒 Cultivo Anônimo e Seguro</h3>
+      <p>
+        Este guia é totalmente anônimo e focado na segurança. Não coletamos dados pessoais,
+        não mostramos rostos e não compartilhamos informações. Nosso foco é apenas no
+        conhecimento científico e prático para cultivo doméstico responsável.
+      </p>
+    </div>
+  </div>
+
+  <!-- Seção de Responsabilidade -->
+  <div class="responsibility-section">
+    <div class="responsibility-content">
+      <h3>⚖️ Cultivo Legal e Responsável</h3>
+      <p>
+        Este conteúdo é puramente educacional e científico sobre botânica.
+        Sempre consulte as leis locais sobre cultivo e use as informações
+        de forma responsável e legal em sua jurisdição. Focamos em cultivo
+        doméstico, sustentável e respeitoso com o meio ambiente.
+      </p>
+    </div>
+  </div>
+</div>

@@ -33,7 +33,9 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/manifest.json",
+              "src/favicon.ico"
             ],
             "styles": [
               "src/styles.scss"
@@ -54,7 +56,8 @@
                   "maximumError": "80kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": "ngsw-config.json"
             },
             "development": {
               "optimization": false,

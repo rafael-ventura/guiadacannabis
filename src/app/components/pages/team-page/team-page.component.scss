@@ -1,108 +1,74 @@
-// Team Page Component - Estilos específicos
-@import '../../../../styles/variables';
-@import '../../../../styles/mixins';
+// Cannabis Community Section - Design Moderno e Específico
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
 
-.team-section {
+.cannabis-community {
   padding: $spacing-4xl 0;
-  background: linear-gradient(135deg, $gray-50 0%, $white 100%);
-}
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  min-height: 100vh;
 
-.team-gratitude {
-  margin-bottom: $spacing-4xl;
-}
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
 
-.gratitude-card {
-  @include card;
-  text-align: center;
-  padding: $spacing-4xl;
-  background: linear-gradient(135deg, $primary-green-lightest 0%, $cannabis-purple-lightest 100%);
-  border: 1px solid rgba(46, 125, 50, 0.1);
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(233, 30, 99, 0.1) 0%, transparent 70%);
-    animation: rotate 20s linear infinite;
+    @include mobile {
+      padding: 0 $spacing-md;
+    }
   }
 }
 
-.gratitude-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto $spacing-lg;
-  @include flex-center;
-  background: linear-gradient(135deg, $cannabis-purple-pink 0%, $cannabis-purple 100%);
-  border-radius: 50%;
-  color: $white;
-  font-size: $font-size-h2;
-  position: relative;
-  z-index: 2;
+.community-hero {
+  text-align: center;
+  margin-bottom: $spacing-4xl;
+  padding: $spacing-2xl 0;
+
+  .hero-icon {
+    font-size: 4rem;
+    margin-bottom: $spacing-lg;
+    display: block;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $gray-900;
+    margin-bottom: $spacing-lg;
+    font-family: $font-display;
+
+    @include mobile {
+      font-size: 2.5rem;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: $font-size-large;
+    color: $gray-600;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+  }
 }
 
-.gratitude-title {
-  @include heading-2;
-  color: $gray-900;
-  margin-bottom: $spacing-lg;
-  position: relative;
-  z-index: 2;
-}
-
-.gratitude-text {
-  @include body-large;
-  color: $gray-700;
-  line-height: $line-height-relaxed;
-  margin-bottom: $spacing-2xl;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  z-index: 2;
-}
-
-.gratitude-stats {
+.community-values {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-lg;
-  position: relative;
-  z-index: 2;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-xl;
+  margin-bottom: $spacing-4xl;
 
   @include mobile {
     grid-template-columns: 1fr;
-    gap: $spacing-md;
+    gap: $spacing-lg;
   }
 }
 
-.team-members {
-  margin-bottom: $spacing-4xl;
-}
-
-.section-title {
-  @include heading-2;
+.value-card {
+  background: $white;
+  border-radius: $border-radius-xl;
+  padding: $spacing-2xl;
   text-align: center;
-  color: $gray-900;
-  margin-bottom: $spacing-2xl;
-}
-
-.members-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $spacing-lg;
-
-  @include mobile {
-    grid-template-columns: 1fr;
-  }
-}
-
-.member-card {
-  @include card;
-  padding: $spacing-xl;
-  text-align: center;
+  box-shadow: $shadow-md;
+  border: 1px solid $gray-200;
   transition: all $transition-normal;
   position: relative;
   overflow: hidden;
@@ -114,209 +80,160 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, $primary-green 0%, $cannabis-purple-pink 100%);
-    transform: scaleX(0);
-    transition: transform $transition-normal;
+    background: linear-gradient(90deg, $primary-green 0%, $cannabis-purple 100%);
   }
-
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: $shadow-xl;
-
-    &::before {
-      transform: scaleX(1);
-    }
-  }
-}
-
-.member-avatar {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto $spacing-lg;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid $primary-green-lightest;
-  position: relative;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.default-avatar {
-  width: 100%;
-  height: 100%;
-  @include flex-center;
-  background: linear-gradient(135deg, $primary-green 0%, $primary-green-light 100%);
-  color: $white;
-  font-size: $font-size-h2;
-}
-
-.member-info {
-  margin-bottom: $spacing-lg;
-}
-
-.member-name {
-  @include heading-4;
-  color: $gray-900;
-  margin-bottom: $spacing-xs;
-}
-
-.member-role {
-  @include body-text;
-  color: $primary-green;
-  font-weight: $font-weight-semibold;
-  margin-bottom: $spacing-sm;
-}
-
-.member-description {
-  @include body-text;
-  color: $gray-600;
-  line-height: $line-height-relaxed;
-  margin-bottom: $spacing-md;
-}
-
-.member-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-xs;
-  justify-content: center;
-}
-
-.skill-tag {
-  @include body-text;
-  font-size: $font-size-small;
-  padding: $spacing-xs $spacing-sm;
-  background: $primary-green-lightest;
-  color: $primary-green;
-  border-radius: $border-radius-sm;
-  font-weight: $font-weight-medium;
-}
-
-.member-social {
-  display: flex;
-  justify-content: center;
-  gap: $spacing-md;
-
-  a {
-    @include flex-center;
-    width: 40px;
-    height: 40px;
-    background: $gray-100;
-    border-radius: 50%;
-    color: $gray-600;
-    text-decoration: none;
-    transition: all $transition-fast;
-
-    &:hover {
-      background: $primary-green;
-      color: $white;
-      transform: translateY(-2px);
-    }
-
-    i {
-      font-size: $font-size-base;
-    }
-  }
-}
-
-.team-stats {
-  margin-bottom: $spacing-4xl;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: $spacing-lg;
-
-  @include mobile {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.stat-card {
-  @include card;
-  padding: $spacing-xl;
-  text-align: center;
-  transition: all $transition-normal;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: $shadow-lg;
+    box-shadow: $shadow-xl;
+    border-color: $primary-green-light;
   }
-}
 
-.stat-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto $spacing-md;
-  @include flex-center;
-  background: linear-gradient(135deg, $cannabis-purple 0%, $cannabis-purple-pink 100%);
-  border-radius: 50%;
-  color: $white;
-  font-size: $font-size-h4;
-}
+  .value-icon {
+    font-size: 3rem;
+    margin-bottom: $spacing-lg;
+    display: block;
+  }
 
-.stat-content {
-  .stat-number {
-    @include heading-2;
+  .value-title {
+    font-size: $font-size-h4;
+    font-weight: 600;
     color: $gray-900;
-    margin-bottom: $spacing-xs;
-    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-md;
+    font-family: $font-display;
   }
 
-  .stat-label {
-    @include body-text;
+  .value-description {
+    font-size: $font-size-base;
     color: $gray-600;
-    font-size: $font-size-small;
-    font-weight: $font-weight-medium;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    line-height: 1.6;
   }
 }
 
-.team-cta {
-  @include card;
+.sharing-section {
+  background: $white;
+  border-radius: $border-radius-xl;
+  padding: $spacing-3xl;
+  margin-bottom: $spacing-3xl;
+  box-shadow: $shadow-lg;
+  border: 1px solid $gray-200;
   text-align: center;
-  padding: $spacing-4xl;
-  background: linear-gradient(135deg, $gray-900 0%, $gray-800 100%);
-  color: $white;
-}
 
-.cta-title {
-  @include heading-2;
-  color: $white;
-  margin-bottom: $spacing-lg;
-}
+  .sharing-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 
-.cta-description {
-  @include body-large;
-  color: $gray-300;
-  margin-bottom: $spacing-2xl;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .sharing-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $gray-900;
+    margin-bottom: $spacing-lg;
+    font-family: $font-display;
+  }
 
-.cta-actions {
-  display: flex;
-  gap: $spacing-md;
-  justify-content: center;
+  .sharing-description {
+    font-size: $font-size-large;
+    color: $gray-600;
+    line-height: 1.6;
+    margin-bottom: $spacing-2xl;
+  }
 
-  @include mobile {
-    flex-direction: column;
+  .sharing-actions {
+    display: flex;
+    gap: $spacing-lg;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: flex;
     align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-xl;
+    border-radius: $border-radius-lg;
+    font-weight: 600;
+    transition: all $transition-normal;
+
+    .btn-icon {
+      font-size: 1.2em;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+    }
   }
 }
 
-// Animações
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
+.anonymity-section {
+  background: linear-gradient(135deg, $primary-green-lightest 0%, $cannabis-purple-lightest 100%);
+  border-radius: $border-radius-xl;
+  padding: $spacing-3xl;
+  text-align: center;
+  border: 1px solid $primary-green-light;
+
+  .anonymity-content {
+    max-width: 500px;
+    margin: 0 auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  .anonymity-icon {
+    font-size: 3rem;
+    margin-bottom: $spacing-lg;
+    display: block;
+  }
+
+  .anonymity-title {
+    font-size: $font-size-h3;
+    font-weight: 600;
+    color: $gray-900;
+    margin-bottom: $spacing-md;
+    font-family: $font-display;
+  }
+
+  .anonymity-description {
+    font-size: $font-size-base;
+    color: $gray-700;
+    line-height: 1.6;
+  }
+}
+
+// Responsividade
+@include mobile {
+  .cannabis-community {
+    padding: $spacing-2xl 0;
+  }
+
+  .community-hero {
+    margin-bottom: $spacing-2xl;
+    padding: $spacing-lg 0;
+
+    .hero-icon {
+      font-size: 3rem;
+    }
+  }
+
+  .community-values {
+    margin-bottom: $spacing-2xl;
+  }
+
+  .value-card {
+    padding: $spacing-lg;
+  }
+
+  .sharing-section {
+    padding: $spacing-xl;
+    margin-bottom: $spacing-xl;
+  }
+
+  .anonymity-section {
+    padding: $spacing-xl;
   }
 }

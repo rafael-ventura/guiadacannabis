@@ -17,6 +17,8 @@ guia-cannabis/
 │   ├── app/
 │   │   ├── components/           # Componentes reutilizáveis
 │   │   │   ├── shared/          # Componentes compartilhados
+│   │   │   │   ├── modern-book/ # Componente de documentação técnica
+│   │   │   │   └── animated-tree/ # Componente de árvore 3D animada
 │   │   │   ├── layout/          # Componentes de layout
 │   │   │   └── content/         # Componentes de conteúdo
 │   │   ├── pages/               # Páginas principais
@@ -52,9 +54,10 @@ guia-cannabis/
 │   │   │   ├── en-US.json
 │   │   │   └── es-ES.json
 │   │   ├── images/             # Imagens do projeto
-│   │   │   ├── icons/
+│   │   │   ├── icons/          # Ícones PWA (72x72, 96x96, 128x128, etc.)
 │   │   │   ├── illustrations/
-│   │   │   └── photos/
+│   │   │   ├── photos/
+│   │   │   └── screenshots/    # Screenshots para PWA
 │   │   ├── content/            # Conteúdo markdown
 │   │   │   ├── chapters/
 │   │   │   └── sections/
@@ -77,6 +80,8 @@ guia-cannabis/
 ├── angular.json                # Configuração do Angular
 ├── package.json               # Dependências do projeto
 ├── tsconfig.json              # Configuração do TypeScript
+├── src/manifest.json          # Manifest PWA
+├── src/ngsw-config.json       # Configuração Service Worker
 └── README.md                  # Documentação do projeto
 ```
 
@@ -413,6 +418,51 @@ assets/content/chapters/
       ]
     }
   ]
+}
+```
+
+## PWA (Progressive Web App) - CONFIGURADO ✅
+
+### 1. Configuração PWA Completa
+- **Manifest**: `public/manifest.webmanifest` com configurações de instalação
+- **Service Worker**: Configurado em `ngsw-config.json` com Angular PWA
+- **Meta Tags**: Otimizadas para mobile e redes sociais
+- **Ícones**: Múltiplos tamanhos (72x72, 96x96, 128x128, 144x144, 152x152, 192x192, 384x384, 512x512)
+- **Tema**: Cores personalizadas (#4CAF50 para tema, #0a0a0a para background)
+
+### 2. Funcionalidades PWA Implementadas
+- **Instalação**: App pode ser instalado no dispositivo
+- **Offline**: Funciona sem conexão com internet
+- **Atualizações**: Atualização automática do app
+- **Performance**: Cache inteligente de recursos
+- **Responsivo**: Otimizado para mobile e desktop
+
+### 3. Configuração Service Worker Atual
+```json
+{
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": ["/favicon.ico", "/index.html", "/manifest.webmanifest", "/*.css", "/*.js"]
+      }
+    }
+  ]
+}
+```
+
+### 4. Manifest Atualizado
+```json
+{
+  "name": "Guia Digital de Cultivo de Cannabis",
+  "short_name": "Guia Cannabis",
+  "description": "Manual completo e gratuito sobre cultivo de cannabis com informações científicas e práticas",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "theme_color": "#4CAF50",
+  "background_color": "#0a0a0a"
 }
 ```
 

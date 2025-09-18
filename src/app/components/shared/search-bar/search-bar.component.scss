@@ -1,6 +1,6 @@
 // Search Bar Component - Estilos específicos
-@import '../../../../styles/variables';
-@import '../../../../styles/mixins';
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
 
 .search-bar {
   position: relative;

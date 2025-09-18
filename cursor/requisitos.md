@@ -116,5 +116,6 @@ src/
 
 ### 3. Deploy
 - Build otimizado para produção
-- Suporte a PWA (opcional)
+- **PWA implementado** com service worker e manifest
 - Configuração para diferentes ambientes
+- Suporte completo a mobile com instalação como app

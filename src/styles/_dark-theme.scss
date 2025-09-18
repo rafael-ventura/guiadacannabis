@@ -1,8 +1,14 @@
 // Dark Theme - Estilos específicos para modo escuro
-@import 'variables';
+@use 'variables' as *;
 
 // Aplicar dark theme globalmente
 .dark-theme {
+  // Fundo global do site
+  body {
+    background: linear-gradient(135deg, #0F1419 0%, #1A1F2E 50%, #252B3D 100%);
+    min-height: 100vh;
+  }
+
   // Hero Section
   .hero-section {
     background: linear-gradient(135deg, #1A1F2E 0%, #252B3D 50%, #3A4151 100%);

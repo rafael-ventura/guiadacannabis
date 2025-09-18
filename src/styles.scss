@@ -1,11 +1,11 @@
 /* Guia Digital de Cultivo de Cannabis - Estilos Globais */
 
 // Importações principais
-@import 'styles/variables';
-@import 'styles/mixins';
-@import 'styles/base';
-@import 'styles/animations';
-@import 'styles/dark-theme';
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/base';
+@use 'styles/animations';
+@use 'styles/dark-theme';
 
 // Estilos globais mínimos
 html {

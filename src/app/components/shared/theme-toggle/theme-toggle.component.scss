@@ -1,100 +1,75 @@
-// Theme Toggle Component - Estilos específicos
-@import '../../../../styles/variables';
-@import '../../../../styles/mixins';
+// Theme Toggle Component - Botão simples com hover effect
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
 
 .theme-toggle {
   display: flex;
   align-items: center;
-  gap: $spacing-xs;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: $spacing-xs $spacing-sm;
   border-radius: $border-radius-lg;
-  transition: all $transition-fast;
+  transition: all $transition-normal;
   color: var(--text-secondary);
+  position: relative;
+  overflow: hidden;
 
   &:hover {
     background-color: var(--bg-tertiary);
     color: var(--text-primary);
+    transform: scale(1.1);
   }
 
   &:focus {
     outline: 2px solid var(--primary-green);
     outline-offset: 2px;
   }
-}
 
-.toggle-track {
-  position: relative;
-  width: 48px;
-  height: 24px;
-  background-color: var(--border);
-  border-radius: 12px;
-  transition: background-color $transition-fast;
-
-  .dark & {
-    background-color: var(--cannabis-purple);
+  &:active {
+    transform: scale(0.95);
   }
 }
 
-.toggle-thumb {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 20px;
-  height: 20px;
-  background-color: var(--bg-primary);
-  border-radius: 50%;
-  transition: transform $transition-fast;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  .dark & {
-    transform: translateX(24px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-}
-
-.icon {
-  font-size: 12px;
-  color: var(--text-muted);
-  transition: color $transition-fast;
-
-  .dark & {
-    color: var(--cannabis-purple);
-  }
-}
-
-.toggle-label {
-  font-size: $font-size-small;
-  font-weight: $font-weight-medium;
+.theme-icon {
+  font-size: 20px;
+  transition: all $transition-normal;
+  display: block;
   user-select: none;
+
+  // Estado normal - mostra o ícone atual
+  &.moon {
+    content: '🌙';
+  }
+
+  &.sun {
+    content: '☀️';
+  }
+
+  // Hover effect - mostra o que vai se tornar
+  .theme-toggle:hover & {
+    &.moon {
+      content: '☀️';
+      transform: rotate(180deg) scale(1.2);
+    }
+
+    &.sun {
+      content: '🌙';
+      transform: rotate(180deg) scale(1.2);
+    }
+  }
 }
 
 // Responsividade
 @include mobile {
   .theme-toggle {
-    padding: $spacing-xs;
-
-    .toggle-label {
-      display: none;
-    }
+    width: 36px;
+    height: 36px;
   }
 
-  .toggle-track {
-    width: 40px;
-    height: 20px;
-  }
-
-  .toggle-thumb {
-    width: 16px;
-    height: 16px;
-
-    .dark & {
-      transform: translateX(20px);
-    }
+  .theme-icon {
+    font-size: 18px;
   }
 }

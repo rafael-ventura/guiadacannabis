@@ -1,37 +1,56 @@
-<!-- Capa do Livro -->
-<section class="book-cover">
-  <div class="book-spine"></div>
-  <div class="book-pages">
-    <div class="book-cover-content">
-      <div class="book-decoration">
-        <div class="corner-decoration top-left"></div>
-        <div class="corner-decoration top-right"></div>
-        <div class="corner-decoration bottom-left"></div>
-        <div class="corner-decoration bottom-right"></div>
-      </div>
+<!-- Hero Section - Estilo Pessoal e Textual -->
+<section class="hero-section" [class.dark-theme]="isDarkMode">
+  <div class="hero-background">
+    <div class="hero-pattern"></div>
+  </div>
 
-      <div class="book-title-section">
-        <div class="book-subtitle">Um guia completo para</div>
-        <h1 class="book-title">Cultivo de Cannabis</h1>
-        <div class="book-author">por nossa comunidade 🌱</div>
-      </div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1 class="hero-title">
+        Guia de Cultivo de Cannabis
+        <span class="title-accent">para Iniciantes</span>
+      </h1>
 
-      <div class="book-illustration">
-        <div class="plant-simple">
-          <div class="pot-simple"></div>
-          <div class="stem-simple"></div>
-          <div class="leaves-simple">
-            <div class="leaf-simple leaf-1"></div>
-            <div class="leaf-simple leaf-2"></div>
-            <div class="leaf-simple leaf-3"></div>
-          </div>
+      <p class="hero-description">
+        Tudo que você precisa saber para começar seu próprio cultivo,
+        desde o básico até técnicas avançadas. Um guia prático e
+        acessível, sem complicações desnecessárias.
+      </p>
+
+      <div class="hero-features">
+        <div class="feature-item">
+          <span class="feature-icon">🌱</span>
+          <span>Guias práticos e diretos</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">📚</span>
+          <span>Conteúdo organizado por tópicos</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">💡</span>
+          <span>Dicas de especialistas</span>
         </div>
       </div>
 
-      <div class="book-actions">
-        <button class="btn-open-book" (click)="startReading()">
-          <span>📖 Abrir livro</span>
+      <div class="hero-actions">
+        <button class="btn-primary" (click)="startReading()">
+          Começar a ler
         </button>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="plant-illustration">
+        <div class="plant-container">
+          <div class="pot"></div>
+          <div class="stem"></div>
+          <div class="leaves">
+            <div class="leaf leaf-1"></div>
+            <div class="leaf leaf-2"></div>
+            <div class="leaf leaf-3"></div>
+            <div class="leaf leaf-4"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

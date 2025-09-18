@@ -1,44 +1,54 @@
-<!-- Sumário do Livro -->
-<section class="book-index">
-  <div class="book-container">
-    <!-- Cabeçalho do Sumário -->
-    <div class="index-header">
-      <h1>📖 Sumário</h1>
-      <p class="index-subtitle">Navegue pelos capítulos do nosso guia</p>
+<!-- Página de Conteúdo -->
+<section class="content-page">
+  <div class="container">
+    <!-- Cabeçalho -->
+    <div class="content-header">
+      <h1>Guia de Cultivo de Cannabis</h1>
+      <p class="content-subtitle">
+        Um guia completo e prático para iniciantes no cultivo de cannabis.
+        Aprenda desde o básico até técnicas avançadas de forma clara e objetiva.
+      </p>
     </div>
 
-    <!-- Lista Vertical de Capítulos -->
-    <div class="chapters-vertical-list">
-      <div class="part-section" *ngFor="let part of parts; let i = index">
-        <div class="part-header">
-          <h2 class="part-title">{{ part.title }}</h2>
-          <p class="part-description">{{ part.subtitle }}</p>
-        </div>
+    <!-- Conteúdo Principal -->
+    <div class="content-main">
+      <div class="topics-grid">
+        <div class="topic-section" *ngFor="let topic of topics; let i = index">
+          <div class="topic-header">
+            <div class="topic-icon">{{ topic.icon }}</div>
+            <h2 class="topic-title">{{ topic.title }}</h2>
+            <p class="topic-description">{{ topic.description }}</p>
+          </div>
 
-        <div class="chapters-list">
-          <div class="chapter-item"
-               *ngFor="let chapter of part.chapters; let j = index"
-               [class.available]="chapter.status === 'available'"
-               [class.in-development]="chapter.status === 'in-development'"
-               (click)="openChapter(chapter)">
+          <div class="articles-list">
+            <div class="article-item"
+                 *ngFor="let article of topic.articles; let j = index"
+                 [class.available]="article.status === 'available'"
+                 [class.in-development]="article.status === 'in-development'"
+                 (click)="openArticle(article)">
 
-            <div class="chapter-number">{{ chapter.page }}</div>
-            <div class="chapter-content">
-              <h3 class="chapter-title">{{ chapter.title }}</h3>
-              <p class="chapter-description">{{ chapter.description }}</p>
-            </div>
-            <div class="chapter-status">
-              <span *ngIf="chapter.status === 'available'" class="status-available">✓</span>
-              <span *ngIf="chapter.status === 'in-development'" class="status-dev">⏳</span>
+              <div class="article-content">
+                <h3 class="article-title">{{ article.title }}</h3>
+                <p class="article-description">{{ article.description }}</p>
+              </div>
+
+              <div class="article-action">
+                <span *ngIf="article.status === 'available'" class="action-available">
+                  Ler capítulo →
+                </span>
+                <span *ngIf="article.status === 'in-development'" class="action-dev">
+                  Em breve
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Rodapé do Sumário -->
-    <div class="index-footer">
-      <p>Escolha um capítulo e comece sua jornada de aprendizado! 🌱</p>
+    <!-- Rodapé -->
+    <div class="content-footer">
+      <p>Comece sua jornada de aprendizado escolhendo um tópico que mais te interessa! 🌱</p>
     </div>
   </div>
 </section>

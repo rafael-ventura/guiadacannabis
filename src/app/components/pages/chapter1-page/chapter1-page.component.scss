@@ -1,0 +1,790 @@
+// Capítulo 1 - Estilos Modernos com Tema Escuro
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+.chapter-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #e2e8f0;
+  font-family: $font-body;
+  line-height: 1.6;
+}
+
+// Header do Capítulo
+.chapter-header {
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  border-bottom: 1px solid #4a5568;
+  padding: $spacing-2xl 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-xl;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-lg;
+    }
+  }
+}
+
+.chapter-info {
+  flex: 1;
+
+  .chapter-meta {
+    display: flex;
+    gap: $spacing-md;
+    margin-bottom: $spacing-sm;
+    flex-wrap: wrap;
+
+    span {
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $border-radius-md;
+      font-size: $font-size-sm;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .chapter-number {
+      background: $primary-green;
+      color: white;
+    }
+
+    .chapter-difficulty {
+      background: #4a5568;
+      color: #e2e8f0;
+    }
+
+    .chapter-time {
+      background: #2d3748;
+      color: #a0aec0;
+    }
+  }
+
+  .chapter-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f7fafc;
+    margin-bottom: $spacing-sm;
+    font-family: $font-display;
+
+    @include mobile {
+      font-size: 2rem;
+    }
+  }
+
+  .chapter-subtitle {
+    font-size: $font-size-large;
+    color: #a0aec0;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  .progress-bar {
+    flex: 1;
+    height: 8px;
+    background: #4a5568;
+    border-radius: $border-radius-full;
+    overflow: hidden;
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, $primary-green 0%, #4ade80 100%);
+      border-radius: $border-radius-full;
+      transition: width 0.3s ease;
+    }
+  }
+
+  .progress-text {
+    font-size: $font-size-sm;
+    color: #a0aec0;
+    font-weight: 600;
+  }
+}
+
+.chapter-navigation {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+
+  @include mobile {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
+  border: 1px solid #4a5568;
+  border-radius: $border-radius-md;
+  background: transparent;
+  color: #e2e8f0;
+  font-size: $font-size-sm;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    background: #4a5568;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &.home-btn {
+    background: $primary-green;
+    border-color: $primary-green;
+    color: white;
+
+    &:hover {
+      background: darken($primary-green, 10%);
+    }
+  }
+
+  .icon {
+    font-size: 1.1em;
+  }
+}
+
+// Conteúdo Principal
+.chapter-content {
+  padding: $spacing-4xl 0;
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+  }
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4xl;
+}
+
+// Conteúdo Markdown
+.markdown-content {
+  background: #2d3748;
+  border-radius: $border-radius-lg;
+  padding: $spacing-2xl;
+  border: 1px solid #4a5568;
+  box-shadow: $shadow-lg;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #f7fafc;
+    margin-bottom: $spacing-md;
+    font-family: $font-display;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    border-bottom: 2px solid $primary-green;
+    padding-bottom: $spacing-sm;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: $primary-green;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin-bottom: $spacing-md;
+    color: #e2e8f0;
+  }
+
+  ul, ol {
+    margin-bottom: $spacing-md;
+    padding-left: $spacing-xl;
+
+    li {
+      margin-bottom: $spacing-xs;
+      color: #e2e8f0;
+    }
+  }
+
+  strong {
+    color: #f7fafc;
+    font-weight: 600;
+  }
+
+  code {
+    background: #1a202c;
+    color: #4ade80;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    font-family: 'Courier New', monospace;
+  }
+
+  blockquote {
+    border-left: 4px solid $primary-green;
+    padding-left: $spacing-lg;
+    margin: $spacing-lg 0;
+    background: #1a202c;
+    padding: $spacing-lg;
+    border-radius: $border-radius-md;
+    font-style: italic;
+  }
+}
+
+// Seção de Dicas
+.tips-section {
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 1.5rem;
+    color: #f7fafc;
+    margin-bottom: $spacing-xl;
+    font-family: $font-display;
+
+    .icon {
+      font-size: 1.2em;
+    }
+  }
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-lg;
+}
+
+.tip-card {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  color: #92400e;
+  padding: $spacing-lg;
+  border-radius: $border-radius-lg;
+  border: 1px solid #f59e0b;
+  box-shadow: $shadow-md;
+  cursor: pointer;
+  transition: all $transition-normal;
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-start;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+    background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+  }
+
+  .tip-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: $spacing-xs;
+  }
+
+  .tip-content {
+    flex: 1;
+
+    p {
+      margin: 0;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+  }
+}
+
+// Seção de Avisos
+.warnings-section {
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    font-size: 1.5rem;
+    color: #f7fafc;
+    margin-bottom: $spacing-xl;
+    font-family: $font-display;
+
+    .icon {
+      font-size: 1.2em;
+    }
+  }
+}
+
+.warnings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-lg;
+}
+
+.warning-card {
+  padding: $spacing-lg;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  cursor: pointer;
+  transition: all $transition-normal;
+  display: flex;
+  gap: $spacing-md;
+  align-items: flex-start;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+
+  &.warning-warning {
+    background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+    color: #9a3412;
+    border: 1px solid #f97316;
+  }
+
+  &.warning-danger {
+    background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
+    color: #991b1b;
+    border: 1px solid #ef4444;
+  }
+
+  .warning-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: $spacing-xs;
+  }
+
+  .warning-content {
+    flex: 1;
+
+    p {
+      margin: 0;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+  }
+}
+
+// Seções do Capítulo
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.section-card {
+  background: #2d3748;
+  border: 1px solid #4a5568;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+    border-color: $primary-green;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: $spacing-md;
+
+    .section-number {
+      background: $primary-green;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: $font-size-sm;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      color: #f7fafc;
+      margin: 0;
+      font-family: $font-display;
+    }
+  }
+
+  .section-content {
+    p {
+      color: #e2e8f0;
+      margin: 0;
+    }
+  }
+}
+
+// Elementos Interativos
+.interactive-elements {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4xl;
+}
+
+.quiz-container {
+  background: #2d3748;
+  border: 1px solid #4a5568;
+  border-radius: $border-radius-lg;
+  padding: $spacing-2xl;
+  box-shadow: $shadow-lg;
+
+  .quiz-title {
+    font-size: 1.5rem;
+    color: #f7fafc;
+    margin-bottom: $spacing-xl;
+    font-family: $font-display;
+  }
+
+  .quiz-question {
+    p {
+      font-size: $font-size-large;
+      color: #e2e8f0;
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  .quiz-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-md;
+  }
+
+  .quiz-option {
+    padding: $spacing-md $spacing-lg;
+    border: 1px solid #4a5568;
+    border-radius: $border-radius-md;
+    background: transparent;
+    color: #e2e8f0;
+    cursor: pointer;
+    transition: all $transition-normal;
+    font-size: $font-size-base;
+
+    &:hover {
+      background: #4a5568;
+      transform: translateY(-2px);
+    }
+
+    &.correct {
+      border-color: $primary-green;
+      background: rgba(34, 197, 94, 0.1);
+      color: $primary-green;
+
+      &:hover {
+        background: rgba(34, 197, 94, 0.2);
+      }
+    }
+  }
+}
+
+.timeline-container {
+  background: #2d3748;
+  border: 1px solid #4a5568;
+  border-radius: $border-radius-lg;
+  padding: $spacing-2xl;
+  box-shadow: $shadow-lg;
+
+  .timeline-title {
+    font-size: 1.5rem;
+    color: #f7fafc;
+    margin-bottom: $spacing-xl;
+    font-family: $font-display;
+  }
+}
+
+.timeline {
+  position: relative;
+  padding-left: $spacing-xl;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: $primary-green;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: $spacing-2xl;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    transform: translateX(8px);
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -28px;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    background: $primary-green;
+    border-radius: 50%;
+    border: 3px solid #2d3748;
+  }
+
+  .timeline-content {
+    background: #1a202c;
+    padding: $spacing-lg;
+    border-radius: $border-radius-md;
+    border: 1px solid #4a5568;
+
+    .timeline-year {
+      display: inline-block;
+      background: $primary-green;
+      color: white;
+      padding: $spacing-xs $spacing-sm;
+      border-radius: $border-radius-sm;
+      font-weight: 700;
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-sm;
+    }
+
+    .timeline-text {
+      color: #e2e8f0;
+      margin: 0;
+    }
+  }
+}
+
+.comparison-container {
+  background: #2d3748;
+  border: 1px solid #4a5568;
+  border-radius: $border-radius-lg;
+  padding: $spacing-2xl;
+  box-shadow: $shadow-lg;
+
+  .comparison-title {
+    font-size: 1.5rem;
+    color: #f7fafc;
+    margin-bottom: $spacing-xl;
+    font-family: $font-display;
+  }
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-lg;
+}
+
+.comparison-card {
+  background: #1a202c;
+  border: 1px solid #4a5568;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  cursor: pointer;
+  transition: all $transition-normal;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+    border-color: $primary-green;
+  }
+
+  .comparison-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+
+    h4 {
+      color: #f7fafc;
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .comparison-icon {
+      font-size: 1.5rem;
+    }
+  }
+
+  .comparison-content {
+    .comparison-item {
+      margin-bottom: $spacing-sm;
+      color: #e2e8f0;
+
+      strong {
+        color: $primary-green;
+      }
+    }
+  }
+}
+
+// Seção de Mídia
+.media-section {
+  .gif-container {
+    background: #2d3748;
+    border: 1px solid #4a5568;
+    border-radius: $border-radius-lg;
+    padding: $spacing-2xl;
+    box-shadow: $shadow-lg;
+
+    .media-title {
+      font-size: 1.5rem;
+      color: #f7fafc;
+      margin-bottom: $spacing-xl;
+      font-family: $font-display;
+    }
+  }
+
+  .gif-wrapper {
+    position: relative;
+    border-radius: $border-radius-md;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+
+    .chapter-gif {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .gif-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      padding: $spacing-lg;
+      color: white;
+
+      p {
+        margin: 0;
+        font-size: $font-size-sm;
+        text-align: center;
+      }
+    }
+  }
+}
+
+// Footer do Capítulo
+.chapter-footer {
+  background: #1a202c;
+  border-top: 1px solid #4a5568;
+  padding: $spacing-2xl 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-xl;
+
+    @include mobile {
+      flex-direction: column;
+      gap: $spacing-lg;
+    }
+  }
+
+  .footer-actions {
+    display: flex;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+
+    @include mobile {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .footer-info {
+    p {
+      color: #a0aec0;
+      margin: 0;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// Animações
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+// Responsividade
+@include mobile {
+  .chapter-page {
+    .chapter-header {
+      padding: $spacing-lg 0;
+    }
+
+    .chapter-content {
+      padding: $spacing-2xl 0;
+    }
+
+    .tips-grid,
+    .warnings-grid,
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .quiz-options {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Tema escuro específico para hero section
+.hero-section.dark-theme {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  color: #e2e8f0;
+
+  .hero-title {
+    color: #f7fafc;
+  }
+
+  .hero-description {
+    color: #a0aec0;
+  }
+
+  .feature-item {
+    color: #e2e8f0;
+  }
+}

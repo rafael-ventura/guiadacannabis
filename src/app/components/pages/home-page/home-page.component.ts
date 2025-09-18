@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 // Importar componentes
 import { HeroSectionComponent } from '../hero-section/hero-section.component';
 import { TeamPageComponent } from '../team-page/team-page.component';
-import { ChaptersPageComponent } from '../chapters-page/chapters-page.component';
+import { ModernBookComponent } from '../../shared/modern-book/modern-book.component';
 
 @Component({
   selector: 'app-home-page',
@@ -15,11 +15,11 @@ import { ChaptersPageComponent } from '../chapters-page/chapters-page.component'
     RouterModule,
     HeroSectionComponent,
     TeamPageComponent,
-    ChaptersPageComponent
+    ModernBookComponent
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
-
+  // Componente simplificado - sem dados de capítulos
 }
