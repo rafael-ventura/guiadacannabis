@@ -1,0 +1,137 @@
+<!-- Team Section - Agradecimento da Equipe -->
+<section class="team-section">
+  <div class="container">
+    <!-- Título da Seção -->
+    <div class="section-header scroll-reveal">
+      <h2 class="section-title">Nossa Equipe</h2>
+      <p class="section-subtitle">
+        Conheça as pessoas por trás deste projeto e nossa paixão pela cannabis
+      </p>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="team-content">
+      <!-- Texto de Agradecimento -->
+      <div class="gratitude-text scroll-reveal">
+        <div class="gratitude-card">
+          <div class="gratitude-icon">
+            <i class="icon-heart"></i>
+          </div>
+          <h3 class="gratitude-title">Obrigado por fazer parte desta jornada!</h3>
+          <div class="gratitude-content">
+            <p>
+              Assim como um treinador Pokémon dedica anos para entender cada criatura única,
+              nossa equipe passou incontáveis horas estudando, pesquisando e experimentando
+              para trazer até você o conhecimento mais completo sobre cultivo de cannabis.
+            </p>
+            <p>
+              Cada capítulo deste guia foi criado com a mesma paixão que um treinador tem
+              ao descobrir uma nova evolução. Sabemos que cada planta é única, cada cultivo
+              é uma aventura, e cada cultivador tem seu próprio estilo - assim como cada
+              treinador tem sua estratégia única.
+            </p>
+            <p>
+              Nossa missão é ser seu Professor Carvalho no mundo da cannabis, fornecendo
+              as ferramentas, conhecimento e suporte necessários para que você se torne
+              o melhor cultivador que pode ser. Lembre-se: "Há um tempo para tudo" -
+              e agora é o tempo de aprender, crescer e florescer!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards da Equipe -->
+      <div class="team-grid">
+        <div class="team-card scroll-reveal" *ngFor="let member of teamMembers; let i = index">
+          <div class="member-avatar">
+            <div class="avatar-placeholder">
+              <i [class]="member.icon"></i>
+            </div>
+            <div class="member-status" [class]="member.status"></div>
+          </div>
+          <div class="member-info">
+            <h4 class="member-name">{{ member.name }}</h4>
+            <p class="member-role">{{ member.role }}</p>
+            <p class="member-description">{{ member.description }}</p>
+            <div class="member-skills">
+              <span class="skill-tag" *ngFor="let skill of member.skills">
+                {{ skill }}
+              </span>
+            </div>
+          </div>
+          <div class="member-stats">
+            <div class="stat">
+              <span class="stat-value">{{ member.experience }}</span>
+              <span class="stat-label">Anos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">{{ member.projects }}</span>
+              <span class="stat-label">Projetos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estatísticas da Equipe -->
+      <div class="team-stats scroll-reveal">
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="icon-users"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">{{ teamStats.totalMembers }}</span>
+            <span class="stat-label">Membros da Equipe</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="icon-clock"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">{{ teamStats.totalHours }}</span>
+            <span class="stat-label">Horas de Desenvolvimento</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="icon-book"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">{{ teamStats.researchPapers }}</span>
+            <span class="stat-label">Artigos Pesquisados</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="icon-globe"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">{{ teamStats.countries }}</span>
+            <span class="stat-label">Países Representados</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="team-cta scroll-reveal">
+        <div class="cta-content">
+          <h3 class="cta-title">Faça parte da nossa comunidade!</h3>
+          <p class="cta-description">
+            Conecte-se com outros cultivadores, compartilhe suas experiências
+            e continue aprendendo conosco.
+          </p>
+          <div class="cta-actions">
+            <button class="btn-primary" (click)="joinCommunity()">
+              <i class="icon-community"></i>
+              <span>Juntar-se à Comunidade</span>
+            </button>
+            <button class="btn-secondary" (click)="contactUs()">
+              <i class="icon-mail"></i>
+              <span>Entrar em Contato</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

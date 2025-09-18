@@ -1,0 +1,34 @@
+<!-- Search Bar Component -->
+<div class="search-bar">
+  <div class="search-input-container">
+    <i class="search-icon icon-search"></i>
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Buscar no manual..."
+      [(ngModel)]="searchQuery"
+      (input)="onSearch()"
+      (focus)="onFocus()"
+      (blur)="onBlur()">
+  </div>
+
+  <!-- Search Results Dropdown -->
+  <div class="search-results" *ngIf="showResults && searchResults.length > 0">
+    <div
+      class="search-result-item"
+      *ngFor="let result of searchResults"
+      (click)="selectResult(result)">
+      <div class="result-title">{{ result.title }}</div>
+      <div class="result-description">{{ result.description }}</div>
+      <div class="result-type">{{ result.type }}</div>
+    </div>
+  </div>
+
+  <!-- No Results -->
+  <div class="search-results" *ngIf="showResults && searchResults.length === 0 && searchQuery.length > 2">
+    <div class="no-results">
+      <i class="icon-search"></i>
+      <p>Nenhum resultado encontrado para "{{ searchQuery }}"</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+<!-- Hero Section - Página Inicial Interativa -->
+<section class="hero-section">
+  <!-- Background com animação -->
+  <div class="hero-background">
+    <div class="floating-leaves">
+      <div class="leaf leaf-1"></div>
+      <div class="leaf leaf-2"></div>
+      <div class="leaf leaf-3"></div>
+      <div class="leaf leaf-4"></div>
+      <div class="leaf leaf-5"></div>
+    </div>
+    <div class="gradient-overlay"></div>
+  </div>
+
+  <!-- Conteúdo Principal -->
+  <div class="hero-content">
+    <div class="container">
+      <div class="hero-text">
+        <!-- Título Principal com Efeito Typewriter -->
+        <h1 class="hero-title">
+          <span class="typewriter-text">Guia Digital de</span>
+          <span class="highlight-text gradient-cannabis">Cultivo de Cannabis</span>
+        </h1>
+
+        <!-- Subtítulo Animado -->
+        <p class="hero-subtitle scroll-reveal">
+          Aprenda tudo sobre cultivo de cannabis de forma científica,
+          responsável e sustentável. Do básico ao avançado,
+          tudo em um só lugar.
+        </p>
+
+        <!-- Estatísticas Interativas -->
+        <div class="hero-stats scroll-reveal">
+          <div class="stat-item">
+            <div class="stat-number" data-target="21">0</div>
+            <div class="stat-label">Capítulos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="500">0</div>
+            <div class="stat-label">Páginas</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Idiomas</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="100">0</div>
+            <div class="stat-label">% Gratuito</div>
+          </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="hero-actions scroll-reveal">
+          <button class="btn-primary btn-ripple" (click)="startReading()">
+            <span>Começar a Ler</span>
+            <i class="icon-arrow-right"></i>
+          </button>
+          <button class="btn-secondary" (click)="exploreChapters()">
+            <span>Explorar Capítulos</span>
+            <i class="icon-book"></i>
+          </button>
+        </div>
+
+        <!-- Indicador de Scroll -->
+        <div class="scroll-indicator">
+          <div class="scroll-text">Role para baixo</div>
+          <div class="scroll-arrow animate-bounce">
+            <i class="icon-arrow-down"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ilustração Interativa -->
+      <div class="hero-illustration scroll-reveal">
+        <div class="plant-container">
+          <div class="plant-stem"></div>
+          <div class="plant-leaves">
+            <div class="leaf leaf-6"></div>
+            <div class="leaf leaf-7"></div>
+            <div class="leaf leaf-8"></div>
+            <div class="leaf leaf-9"></div>
+            <div class="leaf leaf-10"></div>
+          </div>
+          <div class="plant-pot"></div>
+        </div>
+
+        <!-- Partículas flutuantes -->
+        <div class="floating-particles">
+          <div class="particle particle-1"></div>
+          <div class="particle particle-2"></div>
+          <div class="particle particle-3"></div>
+          <div class="particle particle-4"></div>
+          <div class="particle particle-5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seção de Recursos em Scroll -->
+  <div class="hero-features">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card scroll-reveal" *ngFor="let feature of features; let i = index">
+          <div class="feature-icon">
+            <i [class]="feature.icon"></i>
+          </div>
+          <h3 class="feature-title">{{ feature.title }}</h3>
+          <p class="feature-description">{{ feature.description }}</p>
+          <div class="feature-progress">
+            <div class="progress-bar" [style.width.%]="feature.progress"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

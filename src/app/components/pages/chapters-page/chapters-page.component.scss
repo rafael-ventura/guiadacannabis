@@ -1,0 +1,256 @@
+// Guia Comunitário - Estilos despojados
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.guide-section {
+  min-height: 100vh;
+  background: #fafafa;
+  color: #333;
+  padding: $spacing-2xl 0;
+}
+
+.guide-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+// Cabeçalho Simples
+.guide-header {
+  text-align: center;
+  margin-bottom: $spacing-4xl;
+  padding: $spacing-2xl 0;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #2d5a2d;
+    margin-bottom: $spacing-lg;
+    font-weight: 600;
+
+    @include mobile {
+      font-size: 2rem;
+    }
+  }
+
+  .guide-intro {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// Lista de Capítulos
+.chapters-list {
+  margin-bottom: $spacing-4xl;
+}
+
+.chapter-section {
+  margin-bottom: $spacing-3xl;
+
+  .section-header {
+    margin-bottom: $spacing-xl;
+    text-align: center;
+
+    .section-title {
+      font-size: 1.8rem;
+      color: #2d5a2d;
+      margin-bottom: $spacing-sm;
+      font-weight: 600;
+    }
+
+    .section-description {
+      color: #666;
+      font-size: 1rem;
+      font-style: italic;
+    }
+  }
+}
+
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: $spacing-lg;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.chapter-card {
+  background: white;
+  border-radius: 12px;
+  padding: $spacing-lg;
+  border: 2px solid #e8f5e8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    border-color: #4a7c59;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(74, 124, 89, 0.15);
+  }
+
+  &.available {
+    border-color: #4a7c59;
+
+    &:hover {
+      border-color: #2d5a2d;
+    }
+  }
+
+  &.in-development {
+    border-color: #ffa726;
+    opacity: 0.8;
+
+    &:hover {
+      border-color: #ff9800;
+    }
+  }
+}
+
+.chapter-content {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+
+  .chapter-number {
+    background: #4a7c59;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .chapter-info {
+    flex: 1;
+
+    .chapter-title {
+      font-size: 1.2rem;
+      color: #2d5a2d;
+      margin-bottom: $spacing-xs;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .chapter-description {
+      color: #666;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+  }
+}
+
+.chapter-status {
+  text-align: right;
+
+  .status-available {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #e8f5e8;
+    color: #4a7c59;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    i {
+      font-size: 0.8rem;
+    }
+  }
+
+  .status-dev {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #fff3e0;
+    color: #ff9800;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    i {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// Call to Action Simples
+.guide-cta {
+  text-align: center;
+  background: white;
+  padding: $spacing-3xl;
+  border-radius: 16px;
+  border: 2px solid #e8f5e8;
+  margin-top: $spacing-2xl;
+
+  h3 {
+    font-size: 1.8rem;
+    color: #2d5a2d;
+    margin-bottom: $spacing-md;
+    font-weight: 600;
+  }
+
+  p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: $spacing-xl;
+  }
+
+  .btn-primary {
+    background: #4a7c59;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &:hover {
+      background: #3d6b4a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74, 124, 89, 0.3);
+    }
+  }
+}
+
+// Responsividade
+@include mobile {
+  .guide-container {
+    padding: 0 $spacing-sm;
+  }
+
+  .guide-header {
+    margin-bottom: $spacing-2xl;
+    padding: $spacing-lg 0;
+  }
+
+  .chapters-grid {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+  }
+
+  .chapter-card {
+    padding: $spacing-md;
+  }
+
+  .guide-cta {
+    padding: $spacing-xl;
+  }
+}

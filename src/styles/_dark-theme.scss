@@ -1,0 +1,228 @@
+// Dark Theme - Estilos específicos para modo escuro
+@import 'variables';
+
+// Aplicar dark theme globalmente
+.dark-theme {
+  // Hero Section
+  .hero-section {
+    background: linear-gradient(135deg, #1A1F2E 0%, #252B3D 50%, #3A4151 100%);
+  }
+
+  .hero-title {
+    color: var(--text-primary);
+  }
+
+  .hero-subtitle {
+    color: var(--text-secondary);
+  }
+
+  .hero-stats {
+    .stat-item {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border);
+
+      .stat-number {
+        color: var(--primary-green);
+      }
+
+      .stat-label {
+        color: var(--text-secondary);
+      }
+    }
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%);
+    color: var(--text-primary);
+
+    &:hover {
+      background: linear-gradient(135deg, var(--accent-green) 0%, var(--primary-green) 100%);
+    }
+  }
+
+  .btn-secondary {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+
+    &:hover {
+      background-color: var(--bg-tertiary);
+      border-color: var(--border-light);
+    }
+  }
+
+  // Cards e containers
+  .card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+  }
+
+  .section-title {
+    color: var(--text-primary);
+  }
+
+  .section-description {
+    color: var(--text-secondary);
+  }
+
+  // Header
+  .header {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border);
+
+    .logo {
+      color: var(--text-primary);
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+
+      &:hover,
+      &.active {
+        color: var(--primary-green);
+      }
+    }
+  }
+
+  // Footer
+  .footer {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-top: 1px solid var(--border);
+
+    h4 {
+      color: var(--text-primary);
+    }
+
+    a {
+      color: var(--text-secondary);
+
+      &:hover {
+        color: var(--primary-green);
+      }
+    }
+  }
+
+  // Search Bar
+  .search-input {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+
+    &::placeholder {
+      color: var(--text-muted);
+    }
+
+    &:focus {
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 2px rgba(var(--primary-green), 0.2);
+    }
+  }
+
+  // Language Selector
+  .language-selector {
+    .language-button {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+
+      &:hover {
+        background-color: var(--bg-tertiary);
+      }
+    }
+  }
+
+  // Chapters Page
+  .chapters-section {
+    background-color: var(--bg-primary);
+  }
+
+  .part-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+
+    &:hover {
+      background-color: var(--bg-tertiary);
+    }
+  }
+
+  .chapter-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+
+    &:hover {
+      background-color: var(--bg-tertiary);
+    }
+  }
+
+  // Team Page
+  .team-section {
+    background-color: var(--bg-primary);
+  }
+
+  .gratitude-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+  }
+
+  .member-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+
+    &:hover {
+      background-color: var(--bg-tertiary);
+    }
+  }
+
+  // Scroll reveal elements
+  .scroll-reveal {
+    color: var(--text-primary);
+  }
+
+  // Form elements
+  input, textarea, select {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+
+    &::placeholder {
+      color: var(--text-muted);
+    }
+
+    &:focus {
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 2px rgba(var(--primary-green), 0.2);
+    }
+  }
+
+  // Links
+  a {
+    color: var(--primary-green);
+
+    &:hover {
+      color: var(--accent-green);
+    }
+  }
+
+  // Code blocks (se houver)
+  pre, code {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+  }
+
+  // Tables (se houver)
+  table {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+
+    th, td {
+      border: 1px solid var(--border);
+    }
+
+    th {
+      background-color: var(--bg-tertiary);
+    }
+  }
+}

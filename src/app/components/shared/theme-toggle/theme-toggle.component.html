@@ -1,0 +1,18 @@
+<!-- Theme Toggle Component -->
+<button
+  class="theme-toggle"
+  (click)="toggleTheme()"
+  [class.dark]="isDarkMode"
+  [attr.aria-label]="isDarkMode ? 'Ativar modo claro' : 'Ativar modo escuro'"
+  title="{{ isDarkMode ? 'Ativar modo claro' : 'Ativar modo escuro' }}">
+
+  <div class="toggle-track">
+    <div class="toggle-thumb">
+      <i class="icon" [class.icon-sun]="!isDarkMode" [class.icon-moon]="isDarkMode"></i>
+    </div>
+  </div>
+
+  <span class="toggle-label">
+    {{ isDarkMode ? 'Claro' : 'Escuro' }}
+  </span>
+</button>

@@ -1,0 +1,105 @@
+<!-- Team Page Component -->
+<section class="team-section">
+  <div class="container">
+    <!-- Manifesto da Guerrilha -->
+    <div class="team-gratitude scroll-reveal">
+      <div class="gratitude-card">
+        <div class="gratitude-icon">
+          <i class="icon-leaf"></i>
+        </div>
+        <h2 class="gratitude-title">Conhecimento Livre para Todos!</h2>
+        <p class="gratitude-text">
+          Somos uma pequena equipe de desenvolvedores que cultivam e acreditam
+          no poder do conhecimento compartilhado. Este manual é nossa contribuição
+          para democratizar o acesso à informação sobre cultivo responsável.
+          Sem segredos, sem enrolação, sem cobrança. Apenas informação pura,
+          testada e compartilhada com amor pela comunidade canábica.
+        </p>
+        <div class="gratitude-stats">
+          <div class="stat-item">
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Devs Guerrilheiros</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="100">0</div>
+            <div class="stat-label">% Open Source</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="0">0</div>
+            <div class="stat-label">Reais Cobrados</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Equipe -->
+    <div class="team-members">
+      <h2 class="section-title scroll-reveal">A Guerrilha</h2>
+      <div class="members-grid">
+        <div class="member-card scroll-reveal" *ngFor="let member of teamMembers; let i = index">
+          <div class="member-avatar">
+            <img [src]="member.avatar" [alt]="member.name" *ngIf="member.avatar; else defaultAvatar">
+            <ng-template #defaultAvatar>
+              <div class="default-avatar">
+                <i class="icon-user"></i>
+              </div>
+            </ng-template>
+          </div>
+          <div class="member-info">
+            <h3 class="member-name">{{ member.name }}</h3>
+            <p class="member-role">{{ member.role }}</p>
+            <p class="member-description">{{ member.description }}</p>
+            <div class="member-skills">
+              <span class="skill-tag" *ngFor="let skill of member.skills">{{ skill }}</span>
+            </div>
+          </div>
+          <div class="member-social">
+            <a [href]="member.linkedin" target="_blank" *ngIf="member.linkedin">
+              <i class="icon-linkedin"></i>
+            </a>
+            <a [href]="member.github" target="_blank" *ngIf="member.github">
+              <i class="icon-github"></i>
+            </a>
+            <a [href]="member.twitter" target="_blank" *ngIf="member.twitter">
+              <i class="icon-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estatísticas da Equipe -->
+    <div class="team-stats">
+      <div class="stats-grid">
+        <div class="stat-card scroll-reveal" *ngFor="let stat of teamStats; let i = index">
+          <div class="stat-icon">
+            <i [class]="stat.icon"></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-number" [attr.data-target]="stat.value">0</div>
+            <div class="stat-label">{{ stat.label }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="team-cta scroll-reveal">
+      <h2 class="cta-title">Contribua com o Projeto!</h2>
+      <p class="cta-description">
+        Este manual é open source e sempre será gratuito. Contribua com código,
+        sugestões ou compartilhando conhecimento. Juntos, democratizamos a informação!
+      </p>
+      <div class="cta-actions">
+        <button class="btn-primary" (click)="joinCommunity()">
+          <i class="icon-github"></i>
+          <span>Contribuir no GitHub</span>
+        </button>
+        <button class="btn-secondary" (click)="contactUs()">
+          <i class="icon-share"></i>
+          <span>Compartilhar Conhecimento</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

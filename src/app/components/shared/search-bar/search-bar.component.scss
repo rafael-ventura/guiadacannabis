@@ -1,0 +1,120 @@
+// Search Bar Component - Estilos específicos
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.search-bar {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+
+  @include mobile {
+    max-width: 100%;
+  }
+}
+
+.search-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  padding: $spacing-sm $spacing-md $spacing-sm $spacing-2xl;
+  border: 2px solid $gray-300;
+  border-radius: $border-radius-lg;
+  font-size: $font-size-base;
+  background: $white;
+  transition: all $transition-fast;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-green;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+  }
+
+  &::placeholder {
+    color: $gray-500;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  left: $spacing-md;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $gray-500;
+  font-size: $font-size-base;
+  pointer-events: none;
+}
+
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: $white;
+  border: 1px solid $gray-200;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-lg;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: $spacing-xs;
+  @include custom-scrollbar;
+}
+
+.search-result-item {
+  padding: $spacing-md;
+  border-bottom: 1px solid $gray-100;
+  cursor: pointer;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $gray-50;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.result-title {
+  @include body-text;
+  font-weight: $font-weight-semibold;
+  color: $gray-900;
+  margin-bottom: $spacing-xs;
+}
+
+.result-description {
+  @include body-text;
+  font-size: $font-size-small;
+  color: $gray-600;
+  margin-bottom: $spacing-xs;
+  @include text-truncate-lines(2);
+}
+
+.result-type {
+  @include body-text;
+  font-size: $font-size-xs;
+  color: $primary-green;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.no-results {
+  padding: $spacing-xl;
+  text-align: center;
+  color: $gray-500;
+
+  i {
+    font-size: $font-size-h3;
+    margin-bottom: $spacing-sm;
+    display: block;
+  }
+
+  p {
+    @include body-text;
+    margin: 0;
+  }
+}

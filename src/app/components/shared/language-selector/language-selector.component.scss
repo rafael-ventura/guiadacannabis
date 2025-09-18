@@ -1,0 +1,85 @@
+// Language Selector Component - Estilos específicos
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.language-selector {
+  position: relative;
+}
+
+.language-button {
+  @include flex-center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background: transparent;
+  border: 1px solid $gray-300;
+  border-radius: $border-radius-md;
+  color: $gray-700;
+  cursor: pointer;
+  transition: all $transition-fast;
+  font-size: $font-size-base;
+
+  &:hover {
+    border-color: $primary-green;
+    color: $primary-green;
+  }
+
+  &.active {
+    border-color: $primary-green;
+    color: $primary-green;
+    background: $primary-green-lightest;
+  }
+
+  i {
+    font-size: $font-size-base;
+
+    &.icon-chevron-down {
+      transition: transform $transition-fast;
+
+      &.rotated {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: $white;
+  border: 1px solid $gray-200;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-lg;
+  min-width: 150px;
+  z-index: 1000;
+  margin-top: $spacing-xs;
+  overflow: hidden;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  cursor: pointer;
+  transition: background $transition-fast;
+  font-size: $font-size-base;
+
+  &:hover {
+    background: $gray-50;
+  }
+
+  &.active {
+    background: $primary-green-lightest;
+    color: $primary-green;
+  }
+
+  i {
+    font-size: $font-size-base;
+
+    &.icon-check {
+      margin-left: auto;
+      color: $primary-green;
+    }
+  }
+}

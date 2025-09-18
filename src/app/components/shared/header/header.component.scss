@@ -1,0 +1,104 @@
+// Header Component - Estilos específicos
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--bg-primary);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  transition: all $transition-normal;
+
+  &.scrolled {
+    box-shadow: $shadow-md;
+  }
+}
+
+.header-content {
+  @include flex-between;
+  padding: $spacing-md 0;
+  align-items: center;
+}
+
+.logo {
+  @include flex-center;
+  gap: $spacing-sm;
+  font-family: $font-display;
+  font-size: $font-size-h4;
+  font-weight: $font-weight-bold;
+  color: $primary-green;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $accent-green;
+  }
+
+  i {
+    font-size: $font-size-h3;
+  }
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.nav-link {
+  @include body-text;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: $font-weight-medium;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: var(--primary-green);
+    background: var(--bg-secondary);
+  }
+
+  &.active {
+    color: var(--primary-green);
+    background: var(--bg-secondary);
+  }
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+
+  @include mobile {
+    gap: $spacing-sm;
+  }
+}
+
+// Responsividade
+@include mobile {
+  .header-content {
+    flex-wrap: wrap;
+    gap: $spacing-md;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    order: 3;
+    width: 100%;
+  }
+
+  .header-actions {
+    order: 2;
+  }
+}

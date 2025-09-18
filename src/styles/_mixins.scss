@@ -1,0 +1,412 @@
+// Mixins SCSS - Guia Digital de Cultivo de Cannabis
+
+// Responsive Breakpoints
+@mixin mobile {
+  @media (max-width: #{$breakpoint-sm - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-sm}) and (max-width: #{$breakpoint-lg - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$breakpoint-xl}) {
+    @content;
+  }
+}
+
+// Flexbox Utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+// Typography
+@mixin heading-1 {
+  font-family: $font-display;
+  font-size: $font-size-h1;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $gray-900;
+}
+
+@mixin heading-2 {
+  font-family: $font-display;
+  font-size: $font-size-h2;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: $gray-900;
+}
+
+@mixin heading-3 {
+  font-family: $font-display;
+  font-size: $font-size-h3;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-normal;
+  color: $gray-800;
+}
+
+@mixin body-text {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $gray-700;
+}
+
+@mixin body-large {
+  font-family: $font-primary;
+  font-size: $font-size-large;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-relaxed;
+  color: $gray-700;
+}
+
+// Buttons
+@mixin btn-primary {
+  background-color: $primary-green;
+  color: $white;
+  border: none;
+  border-radius: $border-radius-md;
+  padding: $spacing-sm $spacing-lg;
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $accent-green;
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: $shadow-sm;
+  }
+
+  &:disabled {
+    background-color: $gray-400;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+@mixin btn-secondary {
+  background-color: transparent;
+  color: $primary-green;
+  border: 2px solid $primary-green;
+  border-radius: $border-radius-md;
+  padding: $spacing-sm $spacing-lg;
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $primary-green;
+    color: $white;
+  }
+
+  &:active {
+    background-color: $accent-green;
+  }
+}
+
+@mixin btn-ghost {
+  background-color: transparent;
+  color: $gray-700;
+  border: none;
+  border-radius: $border-radius-md;
+  padding: $spacing-sm $spacing-lg;
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $gray-100;
+    color: $gray-900;
+  }
+}
+
+// Cards
+@mixin card {
+  background-color: $white;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  padding: $spacing-lg;
+  border: 1px solid $gray-200;
+  transition: all $transition-normal;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin card-interactive {
+  @include card;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: $shadow-xl;
+    transform: translateY(-4px);
+  }
+}
+
+// Animations
+@mixin fade-in($duration: $transition-normal) {
+  opacity: 0;
+  animation: fadeIn $duration ease-in-out forwards;
+}
+
+@mixin slide-up($duration: $transition-normal) {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp $duration ease-out forwards;
+}
+
+@mixin slide-in-left($duration: $transition-normal) {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideInLeft $duration ease-out forwards;
+}
+
+@mixin slide-in-right($duration: $transition-normal) {
+  opacity: 0;
+  transform: translateX(30px);
+  animation: slideInRight $duration ease-out forwards;
+}
+
+// Gradients
+@mixin gradient-primary {
+  background: linear-gradient(135deg, $primary-green 0%, $primary-green-light 100%);
+}
+
+@mixin gradient-cannabis {
+  background: linear-gradient(135deg, $cannabis-purple 0%, $cannabis-purple-pink 100%);
+}
+
+@mixin gradient-earth {
+  background: linear-gradient(135deg, $earth-brown 0%, $leaf-green 100%);
+}
+
+// Shadows
+@mixin shadow-soft {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@mixin shadow-medium {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+@mixin shadow-strong {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+// Focus States
+@mixin focus-ring {
+  outline: 2px solid $primary-green;
+  outline-offset: 2px;
+}
+
+@mixin focus-ring-inset {
+  outline: 2px solid $primary-green;
+  outline-offset: -2px;
+}
+
+// Scrollbar
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $gray-100;
+    border-radius: $border-radius-sm;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $gray-400;
+    border-radius: $border-radius-sm;
+
+    &:hover {
+      background: $gray-500;
+    }
+  }
+}
+
+// Text Selection
+@mixin text-selection {
+  &::selection {
+    background-color: $primary-green-lightest;
+    color: $gray-900;
+  }
+}
+
+// Aspect Ratio
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: percentage($height / $width);
+  }
+
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Truncate Text
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin text-truncate-lines($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Hover Effects
+@mixin hover-lift($lift: 4px) {
+  transition: transform $transition-fast, box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY(-#{$lift});
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin hover-glow($color: $primary-green) {
+  transition: box-shadow $transition-fast;
+
+  &:hover {
+    box-shadow: 0 0 20px rgba($color, 0.3);
+  }
+}
+
+@mixin hover-scale($scale: 1.05) {
+  transition: transform $transition-fast;
+
+  &:hover {
+    transform: scale($scale);
+  }
+}
+
+// Heading Mixins
+@mixin heading-1 {
+  font-size: $font-size-h1;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $gray-900;
+  margin: 0 0 $spacing-lg 0;
+}
+
+@mixin heading-2 {
+  font-size: $font-size-h2;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  color: $gray-900;
+  margin: 0 0 $spacing-md 0;
+}
+
+@mixin heading-3 {
+  font-size: $font-size-h3;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: $gray-900;
+  margin: 0 0 $spacing-sm 0;
+}
+
+@mixin heading-4 {
+  font-size: $font-size-h4;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: $gray-900;
+  margin: 0 0 $spacing-sm 0;
+}
+
+@mixin heading-5 {
+  font-size: $font-size-h5;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-tight;
+  color: $gray-900;
+  margin: 0 0 $spacing-xs 0;
+}
+
+@mixin heading-6 {
+  font-size: $font-size-h6;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-tight;
+  color: $gray-900;
+  margin: 0 0 $spacing-xs 0;
+}
+
+// Body Text Mixins
+@mixin body-text {
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $gray-700;
+  margin: 0;
+}
+
+@mixin body-large {
+  font-size: $font-size-large;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-relaxed;
+  color: $gray-700;
+  margin: 0;
+}
+
+@mixin body-small {
+  font-size: $font-size-small;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $gray-600;
+  margin: 0;
+}

@@ -1,0 +1,109 @@
+/* Guia Digital de Cultivo de Cannabis - Estilos Globais */
+
+// Importações principais
+@import 'styles/variables';
+@import 'styles/mixins';
+@import 'styles/base';
+@import 'styles/animations';
+@import 'styles/dark-theme';
+
+// Estilos globais mínimos
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+// Utilitários globais essenciais
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @include mobile {
+    padding: 0 $spacing-sm;
+  }
+}
+
+.section {
+  padding: $spacing-4xl 0;
+
+  @include mobile {
+    padding: $spacing-2xl 0;
+  }
+}
+
+// Classes utilitárias básicas
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+
+// Gradientes globais
+.gradient-primary { @include gradient-primary; }
+.gradient-cannabis { @include gradient-cannabis; }
+.gradient-earth { @include gradient-earth; }
+
+// Efeitos de hover globais
+.hover-lift { @include hover-lift; }
+.hover-scale { @include hover-scale; }
+.hover-glow { @include hover-glow; }
+
+// Variáveis CSS para temas
+:root {
+  // Cores - Light Theme
+  --bg-primary: #{$white};
+  --bg-secondary: #{$gray-50};
+  --bg-tertiary: #{$gray-100};
+  --text-primary: #{$gray-900};
+  --text-secondary: #{$gray-700};
+  --text-muted: #{$gray-500};
+  --border: #{$gray-200};
+  --border-light: #{$gray-100};
+
+  // Cores de marca
+  --primary-green: #{$primary-green};
+  --primary-green-light: #{$primary-green-light};
+  --accent-green: #{$accent-green};
+  --cannabis-purple: #{$cannabis-purple};
+  --cannabis-purple-light: #{$cannabis-purple-light};
+  --cannabis-purple-pink: #{$cannabis-purple-pink};
+
+  // Status
+  --success: #{$success};
+  --warning: #{$warning};
+  --error: #{$error};
+  --info: #{$info};
+}
+
+// Dark Theme
+.dark-theme {
+  --bg-primary: #{$dark-bg-primary};
+  --bg-secondary: #{$dark-bg-secondary};
+  --bg-tertiary: #{$dark-bg-tertiary};
+  --text-primary: #{$dark-text-primary};
+  --text-secondary: #{$dark-text-secondary};
+  --text-muted: #{$dark-text-muted};
+  --border: #{$dark-border};
+  --border-light: #{$dark-border-light};
+
+  // Ajustar cores de status para dark mode
+  --success: #{$success-light};
+  --warning: #{$warning-light};
+  --error: #{$error-light};
+  --info: #{$info-light};
+}
+
+// Aplicar cores do tema
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

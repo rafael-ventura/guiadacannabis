@@ -1,0 +1,24 @@
+<!-- Language Selector Component -->
+<div class="language-selector">
+  <button
+    class="language-button"
+    (click)="toggleDropdown()"
+    [class.active]="showDropdown">
+    <i class="icon-globe"></i>
+    <span>{{ currentLanguage.name }}</span>
+    <i class="icon-chevron-down" [class.rotated]="showDropdown"></i>
+  </button>
+
+  <!-- Language Dropdown -->
+  <div class="language-dropdown" *ngIf="showDropdown">
+    <div
+      class="language-option"
+      *ngFor="let language of availableLanguages"
+      [class.active]="language.code === currentLanguage.code"
+      (click)="selectLanguage(language)">
+      <i [class]="language.icon"></i>
+      <span>{{ language.name }}</span>
+      <i class="icon-check" *ngIf="language.code === currentLanguage.code"></i>
+    </div>
+  </div>
+</div>

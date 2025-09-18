@@ -1,0 +1,155 @@
+// Variáveis SCSS - Guia Digital de Cultivo de Cannabis
+// Baseado no design system definido
+
+// Cores Primárias
+$primary-green: #2E7D32;
+$primary-green-light: #4CAF50;
+$primary-green-lighter: #81C784;
+$primary-green-lightest: #C8E6C9;
+
+// Verde Complementar
+$accent-green: #1B5E20;
+$accent-green-light: #388E3C;
+
+// Cores Secundárias
+// Tons de Terra
+$earth-brown: #8D6E63;
+$earth-brown-light: #A1887F;
+$earth-brown-lighter: #D7CCC8;
+
+// Tons de Folha
+$leaf-green: #689F38;
+$leaf-green-light: #8BC34A;
+$leaf-green-lighter: #AED581;
+
+// Tons de Cannabis (Roxo Rosado - Manchas Arroxeadas)
+$cannabis-purple: #9C27B0;
+$cannabis-purple-light: #BA68C8;
+$cannabis-purple-lighter: #E1BEE7;
+$cannabis-purple-pink: #E91E63;
+$cannabis-purple-pink-light: #F06292;
+$cannabis-purple-pink-lighter: #F8BBD9;
+$cannabis-purple-lightest: #F3E5F5;
+
+// Cores Neutras - Light Theme
+$gray-900: #212121;
+$gray-800: #424242;
+$gray-700: #616161;
+$gray-600: #757575;
+$gray-500: #9E9E9E;
+$gray-400: #BDBDBD;
+$gray-300: #E0E0E0;
+$gray-200: #EEEEEE;
+$gray-100: #F5F5F5;
+$gray-50: #FAFAFA;
+$white: #FFFFFF;
+
+// Cores Neutras - Dark Theme
+$dark-bg-primary: #0F1419;      // Azul escuro principal
+$dark-bg-secondary: #1A1F2E;    // Azul escuro secundário
+$dark-bg-tertiary: #252B3D;     // Azul escuro terciário
+$dark-text-primary: #E8EAF0;    // Texto principal claro
+$dark-text-secondary: #B8BCC8;  // Texto secundário
+$dark-text-muted: #8A8F9C;      // Texto suave
+$dark-border: #3A4151;          // Bordas
+$dark-border-light: #4A5161;    // Bordas claras
+
+// Cores de Status
+$success: #4CAF50;
+$success-light: #81C784;
+$success-dark: #388E3C;
+$success-green: #4CAF50;
+
+$warning: #FF9800;
+$warning-light: #FFB74D;
+$warning-dark: #F57C00;
+
+$error: #F44336;
+$error-light: #EF5350;
+$error-dark: #D32F2F;
+
+$info: #2196F3;
+$info-light: #64B5F6;
+$info-dark: #1976D2;
+
+// Tipografia
+$font-primary: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-mono: 'Fira Code', 'Consolas', 'Monaco', 'Courier New', monospace;
+$font-display: 'Poppins', 'Inter', sans-serif;
+
+// Tamanhos de Fonte
+$font-size-h1: 2.5rem; // 40px
+$font-size-h2: 2rem; // 32px
+$font-size-h3: 1.75rem; // 28px
+$font-size-h4: 1.5rem; // 24px
+$font-size-h5: 1.25rem; // 20px
+$font-size-h6: 1.125rem; // 18px
+$font-size-large: 1.125rem; // 18px
+$font-size-base: 1rem; // 16px
+$font-size-small: 0.875rem; // 14px
+$font-size-xs: 0.75rem; // 12px
+$font-size-2xl: 3rem; // 48px - Tamanho extra grande para títulos principais
+
+// Line Heights
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+
+// Pesos de Fonte
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+// Espaçamento (8px base)
+$spacing-xs: 0.25rem; // 4px
+$spacing-sm: 0.5rem; // 8px
+$spacing-md: 1rem; // 16px
+$spacing-lg: 1.5rem; // 24px
+$spacing-xl: 2rem; // 32px
+$spacing-2xl: 3rem; // 48px
+$spacing-3xl: 4rem; // 64px
+$spacing-4xl: 6rem; // 96px
+
+// Raios de Borda
+$border-radius-sm: 0.25rem; // 4px
+$border-radius-md: 0.5rem; // 8px
+$border-radius-lg: 1rem; // 16px
+$border-radius-xl: 1.5rem; // 24px
+$border-radius-full: 50%; // Círculo
+
+// Espessuras de Borda
+$border-width-thin: 1px;
+$border-width-medium: 2px;
+$border-width-thick: 4px;
+
+// Sombras
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+// Breakpoints
+$breakpoint-xs: 320px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// Transições
+$transition-fast: 0.15s ease;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-index
+$z-dropdown: 1000;
+$z-sticky: 1020;
+$z-fixed: 1030;
+$z-modal-backdrop: 1040;
+$z-modal: 1050;
+$z-popover: 1060;
+$z-tooltip: 1070;

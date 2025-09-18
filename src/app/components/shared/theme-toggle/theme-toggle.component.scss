@@ -1,0 +1,100 @@
+// Theme Toggle Component - Estilos específicos
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-lg;
+  transition: all $transition-fast;
+  color: var(--text-secondary);
+
+  &:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+
+  &:focus {
+    outline: 2px solid var(--primary-green);
+    outline-offset: 2px;
+  }
+}
+
+.toggle-track {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  background-color: var(--border);
+  border-radius: 12px;
+  transition: background-color $transition-fast;
+
+  .dark & {
+    background-color: var(--cannabis-purple);
+  }
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background-color: var(--bg-primary);
+  border-radius: 50%;
+  transition: transform $transition-fast;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .dark & {
+    transform: translateX(24px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.icon {
+  font-size: 12px;
+  color: var(--text-muted);
+  transition: color $transition-fast;
+
+  .dark & {
+    color: var(--cannabis-purple);
+  }
+}
+
+.toggle-label {
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  user-select: none;
+}
+
+// Responsividade
+@include mobile {
+  .theme-toggle {
+    padding: $spacing-xs;
+
+    .toggle-label {
+      display: none;
+    }
+  }
+
+  .toggle-track {
+    width: 40px;
+    height: 20px;
+  }
+
+  .toggle-thumb {
+    width: 16px;
+    height: 16px;
+
+    .dark & {
+      transform: translateX(20px);
+    }
+  }
+}

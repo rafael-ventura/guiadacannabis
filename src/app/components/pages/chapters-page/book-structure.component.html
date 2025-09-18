@@ -1,0 +1,167 @@
+<!-- Book Structure - Estrutura Geral do Livro -->
+<section class="book-structure">
+  <div class="container">
+    <!-- Cabeçalho da Seção -->
+    <div class="section-header scroll-reveal">
+      <h2 class="section-title">Estrutura do Guia</h2>
+      <p class="section-subtitle">
+        Explore os 21 capítulos organizados em 7 partes temáticas,
+        do básico ao avançado
+      </p>
+    </div>
+
+    <!-- Navegação por Partes -->
+    <div class="parts-navigation scroll-reveal">
+      <div class="nav-tabs">
+        <button
+          class="nav-tab"
+          *ngFor="let part of parts; let i = index"
+          [class.active]="activePart === i"
+          (click)="setActivePart(i)">
+          <div class="tab-icon">
+            <i [class]="part.icon"></i>
+          </div>
+          <div class="tab-content">
+            <span class="tab-title">{{ part.title }}</span>
+            <span class="tab-chapters">{{ part.chapters.length }} capítulos</span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Conteúdo da Parte Ativa -->
+    <div class="part-content scroll-reveal">
+      <div class="part-header">
+        <div class="part-icon">
+          <i [class]="activePartData.icon"></i>
+        </div>
+        <div class="part-info">
+          <h3 class="part-title">{{ activePartData.title }}</h3>
+          <p class="part-description">{{ activePartData.description }}</p>
+          <div class="part-stats">
+            <div class="stat">
+              <span class="stat-value">{{ activePartData.chapters.length }}</span>
+              <span class="stat-label">Capítulos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">{{ activePartData.estimatedTime }}</span>
+              <span class="stat-label">Minutos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">{{ activePartData.difficulty }}</span>
+              <span class="stat-label">Dificuldade</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid de Capítulos -->
+      <div class="chapters-grid">
+        <div
+          class="chapter-card"
+          *ngFor="let chapter of activePartData.chapters; let i = index"
+          [class.completed]="chapter.completed"
+          [class.in-progress]="chapter.inProgress"
+          (click)="openChapter(chapter)">
+          <div class="chapter-header">
+            <div class="chapter-number">{{ chapter.number }}</div>
+            <div class="chapter-status">
+              <i [class]="getStatusIcon(chapter)"></i>
+            </div>
+          </div>
+          <div class="chapter-content">
+            <h4 class="chapter-title">{{ chapter.title }}</h4>
+            <p class="chapter-description">{{ chapter.description }}</p>
+            <div class="chapter-meta">
+              <div class="meta-item">
+                <i class="icon-clock"></i>
+                <span>{{ chapter.estimatedTime }}min</span>
+              </div>
+              <div class="meta-item">
+                <i class="icon-difficulty"></i>
+                <span class="difficulty-badge" [class]="chapter.difficulty">
+                  {{ getDifficultyLabel(chapter.difficulty) }}
+                </span>
+              </div>
+            </div>
+            <div class="chapter-progress" *ngIf="chapter.progress > 0">
+              <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="chapter.progress"></div>
+              </div>
+              <span class="progress-text">{{ chapter.progress }}% concluído</span>
+            </div>
+          </div>
+          <div class="chapter-actions">
+            <button class="btn-chapter" [class]="getChapterButtonClass(chapter)">
+              <i [class]="getChapterButtonIcon(chapter)"></i>
+              <span>{{ getChapterButtonText(chapter) }}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estatísticas Gerais -->
+    <div class="book-stats scroll-reveal">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="icon-book"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">{{ totalChapters }}</span>
+            <span class="stat-label">Capítulos</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="icon-clock"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">{{ totalTime }}</span>
+            <span class="stat-label">Minutos</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="icon-globe"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">{{ totalLanguages }}</span>
+            <span class="stat-label">Idiomas</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="icon-users"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">{{ totalReaders }}</span>
+            <span class="stat-label">Leitores</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="book-cta scroll-reveal">
+      <div class="cta-content">
+        <h3 class="cta-title">Pronto para começar sua jornada?</h3>
+        <p class="cta-description">
+          Acesse o guia completo e comece a aprender sobre cultivo de cannabis
+          de forma científica e responsável.
+        </p>
+        <div class="cta-actions">
+          <button class="btn-primary" (click)="startReading()">
+            <i class="icon-play"></i>
+            <span>Começar a Ler</span>
+          </button>
+          <button class="btn-secondary" (click)="downloadGuide()">
+            <i class="icon-download"></i>
+            <span>Baixar Guia</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
