@@ -1,7 +1,7 @@
 {
   "framework": null,
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/guia-cannabis",
+  "outputDirectory": "dist/guia-cannabis/browser",
   "installCommand": "npm install --legacy-peer-deps",
   "rewrites": [
     {
