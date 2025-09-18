@@ -1,256 +1,257 @@
-// Guia Comunitário - Estilos despojados
+// Sumário do Livro - Estilo fofo e vertical
 @import '../../../../styles/variables';
 @import '../../../../styles/mixins';
 
-.guide-section {
+.book-index {
   min-height: 100vh;
-  background: #fafafa;
+  background: linear-gradient(135deg, #fef7f0 0%, #f0f8f0 50%, #f5f0ff 100%);
   color: #333;
-  padding: $spacing-2xl 0;
+  padding: 3rem 0;
+  font-family: 'Georgia', serif;
 }
 
-.guide-container {
-  max-width: 1000px;
+.book-container {
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 $spacing-md;
+  padding: 0 2rem;
 }
 
-// Cabeçalho Simples
-.guide-header {
+// Cabeçalho do Sumário
+.index-header {
   text-align: center;
-  margin-bottom: $spacing-4xl;
-  padding: $spacing-2xl 0;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #2d5a2d;
-    margin-bottom: $spacing-lg;
-    font-weight: 600;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 
     @include mobile {
-      font-size: 2rem;
+      font-size: 2.5rem;
     }
   }
 
-  .guide-intro {
+  .index-subtitle {
     font-size: 1.2rem;
-    color: #666;
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto;
+    color: #8b7355;
+    font-style: italic;
+    margin: 0;
   }
 }
 
-// Lista de Capítulos
-.chapters-list {
-  margin-bottom: $spacing-4xl;
-}
-
-.chapter-section {
-  margin-bottom: $spacing-3xl;
-
-  .section-header {
-    margin-bottom: $spacing-xl;
-    text-align: center;
-
-    .section-title {
-      font-size: 1.8rem;
-      color: #2d5a2d;
-      margin-bottom: $spacing-sm;
-      font-weight: 600;
-    }
-
-    .section-description {
-      color: #666;
-      font-size: 1rem;
-      font-style: italic;
-    }
-  }
-}
-
-.chapters-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: $spacing-lg;
-
-  @include mobile {
-    grid-template-columns: 1fr;
-  }
-}
-
-.chapter-card {
+// Lista Vertical de Capítulos
+.chapters-vertical-list {
   background: white;
   border-radius: 12px;
-  padding: $spacing-lg;
-  border: 2px solid #e8f5e8;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.part-section {
+  border-bottom: 2px solid #f0f0f0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.part-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #dee2e6;
+
+  .part-title {
+    font-size: 1.5rem;
+    color: #2d5a2d;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .part-description {
+    color: #6c757d;
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0;
+  }
+}
+
+.chapters-list {
+  padding: 0;
+}
+
+.chapter-item {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #f8f9fa;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
 
   &:hover {
-    border-color: #4a7c59;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(74, 124, 89, 0.15);
+    background: #f8f9fa;
+    transform: translateX(8px);
+  }
+
+  &:last-child {
+    border-bottom: none;
   }
 
   &.available {
-    border-color: #4a7c59;
-
+    border-left: 4px solid #4a7c59;
+    
     &:hover {
-      border-color: #2d5a2d;
+      background: #e8f5e8;
     }
   }
 
   &.in-development {
-    border-color: #ffa726;
-    opacity: 0.8;
-
+    border-left: 4px solid #ffa726;
+    opacity: 0.7;
+    
     &:hover {
-      border-color: #ff9800;
+      background: #fff3e0;
     }
   }
 }
 
-.chapter-content {
+.chapter-number {
+  background: #4a7c59;
+  color: white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
   display: flex;
-  gap: $spacing-md;
-  margin-bottom: $spacing-md;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(74, 124, 89, 0.3);
+}
 
-  .chapter-number {
-    background: #4a7c59;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.chapter-content {
+  flex: 1;
+  margin-right: 1rem;
+
+  .chapter-title {
+    font-size: 1.1rem;
+    color: #2d5a2d;
+    margin-bottom: 0.5rem;
     font-weight: 600;
-    font-size: 0.9rem;
-    flex-shrink: 0;
+    line-height: 1.3;
   }
 
-  .chapter-info {
-    flex: 1;
-
-    .chapter-title {
-      font-size: 1.2rem;
-      color: #2d5a2d;
-      margin-bottom: $spacing-xs;
-      font-weight: 600;
-      line-height: 1.3;
-    }
-
-    .chapter-description {
-      color: #666;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      margin: 0;
-    }
+  .chapter-description {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0;
   }
 }
 
 .chapter-status {
-  text-align: right;
+  flex-shrink: 0;
 
   .status-available {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
     background: #e8f5e8;
     color: #4a7c59;
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 500;
-
-    i {
-      font-size: 0.8rem;
-    }
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
   }
 
   .status-dev {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
     background: #fff3e0;
     color: #ff9800;
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: 500;
-
-    i {
-      font-size: 0.8rem;
-    }
+    padding: 0.5rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
   }
 }
 
-// Call to Action Simples
-.guide-cta {
+// Rodapé do Sumário
+.index-footer {
   text-align: center;
-  background: white;
-  padding: $spacing-3xl;
-  border-radius: 16px;
-  border: 2px solid #e8f5e8;
-  margin-top: $spacing-2xl;
-
-  h3 {
-    font-size: 1.8rem;
-    color: #2d5a2d;
-    margin-bottom: $spacing-md;
-    font-weight: 600;
-  }
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 
   p {
-    color: #666;
     font-size: 1.1rem;
-    margin-bottom: $spacing-xl;
-  }
-
-  .btn-primary {
-    background: #4a7c59;
-    color: white;
-    border: none;
-    padding: 14px 28px;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    &:hover {
-      background: #3d6b4a;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(74, 124, 89, 0.3);
-    }
+    color: #6c757d;
+    margin: 0;
+    font-style: italic;
   }
 }
 
 // Responsividade
 @include mobile {
-  .guide-container {
-    padding: 0 $spacing-sm;
+  .book-container {
+    padding: 0 1rem;
   }
 
-  .guide-header {
-    margin-bottom: $spacing-2xl;
-    padding: $spacing-lg 0;
+  .index-header {
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+
+    h1 {
+      font-size: 2.5rem;
+    }
   }
 
-  .chapters-grid {
-    grid-template-columns: 1fr;
-    gap: $spacing-md;
+  .part-header {
+    padding: 1rem 1.5rem;
+
+    .part-title {
+      font-size: 1.3rem;
+    }
   }
 
-  .chapter-card {
-    padding: $spacing-md;
+  .chapter-item {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    &:hover {
+      transform: none;
+    }
   }
 
-  .guide-cta {
-    padding: $spacing-xl;
+  .chapter-number {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .chapter-content {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .chapter-status {
+    align-self: flex-end;
+  }
+
+  .index-footer {
+    margin-top: 2rem;
+    padding: 1.5rem;
   }
 }

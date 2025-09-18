@@ -1,61 +1,44 @@
-<!-- Guia Comunitário -->
-<section class="guide-section">
-  <div class="guide-container">
-    <!-- Cabeçalho Simples -->
-    <div class="guide-header">
-      <h1>O que você vai aprender aqui</h1>
-      <p class="guide-intro">
-        A gente organizou tudo em capítulos pra ficar mais fácil de navegar.
-        Cada um tem dicas práticas e explicações que a gente aprendeu na prática.
-      </p>
+<!-- Sumário do Livro -->
+<section class="book-index">
+  <div class="book-container">
+    <!-- Cabeçalho do Sumário -->
+    <div class="index-header">
+      <h1>📖 Sumário</h1>
+      <p class="index-subtitle">Navegue pelos capítulos do nosso guia</p>
     </div>
 
-    <!-- Lista de Capítulos -->
-    <div class="chapters-list">
-      <div class="chapter-section" *ngFor="let part of parts; let i = index">
-        <div class="section-header">
-          <h2 class="section-title">{{ part.title }}</h2>
-          <p class="section-description">{{ part.subtitle }}</p>
+    <!-- Lista Vertical de Capítulos -->
+    <div class="chapters-vertical-list">
+      <div class="part-section" *ngFor="let part of parts; let i = index">
+        <div class="part-header">
+          <h2 class="part-title">{{ part.title }}</h2>
+          <p class="part-description">{{ part.subtitle }}</p>
         </div>
-
-        <div class="chapters-grid">
-          <div class="chapter-card"
-               *ngFor="let chapter of part.chapters"
+        
+        <div class="chapters-list">
+          <div class="chapter-item"
+               *ngFor="let chapter of part.chapters; let j = index"
                [class.available]="chapter.status === 'available'"
                [class.in-development]="chapter.status === 'in-development'"
                (click)="openChapter(chapter)">
-
+            
+            <div class="chapter-number">{{ chapter.page }}</div>
             <div class="chapter-content">
-              <div class="chapter-number">{{ chapter.page }}</div>
-              <div class="chapter-info">
-                <h3 class="chapter-title">{{ chapter.title }}</h3>
-                <p class="chapter-description">{{ chapter.description }}</p>
-              </div>
+              <h3 class="chapter-title">{{ chapter.title }}</h3>
+              <p class="chapter-description">{{ chapter.description }}</p>
             </div>
-
             <div class="chapter-status">
-              <span *ngIf="chapter.status === 'available'" class="status-available">
-                <i class="icon-check"></i>
-                Disponível
-              </span>
-              <span *ngIf="chapter.status === 'in-development'" class="status-dev">
-                <i class="icon-clock"></i>
-                Em breve
-              </span>
+              <span *ngIf="chapter.status === 'available'" class="status-available">✓</span>
+              <span *ngIf="chapter.status === 'in-development'" class="status-dev">⏳</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Call to Action Simples -->
-    <div class="guide-cta">
-      <h3>Pronto pra começar?</h3>
-      <p>Escolhe um capítulo que te interessa e vamos nessa! 🌱</p>
-      <button class="btn-primary" (click)="startReading()">
-        <span>Começar a ler</span>
-        <i class="icon-arrow-right"></i>
-      </button>
+    <!-- Rodapé do Sumário -->
+    <div class="index-footer">
+      <p>Escolha um capítulo e comece sua jornada de aprendizado! 🌱</p>
     </div>
   </div>
 </section>
