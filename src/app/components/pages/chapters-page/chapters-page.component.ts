@@ -137,7 +137,7 @@ export class ChaptersPageComponent {
         'anatomia-planta': '2-anatomia-planta',
         'ciclo-vida': '3-ciclo-vida'
       };
-      
+
       const route = routeMap[article.id] || `/chapters/${article.id}`;
       this.router.navigate([route]);
     }
