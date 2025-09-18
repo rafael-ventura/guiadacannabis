@@ -14,14 +14,14 @@
           <h2 class="part-title">{{ part.title }}</h2>
           <p class="part-description">{{ part.subtitle }}</p>
         </div>
-        
+
         <div class="chapters-list">
           <div class="chapter-item"
                *ngFor="let chapter of part.chapters; let j = index"
                [class.available]="chapter.status === 'available'"
                [class.in-development]="chapter.status === 'in-development'"
                (click)="openChapter(chapter)">
-            
+
             <div class="chapter-number">{{ chapter.page }}</div>
             <div class="chapter-content">
               <h3 class="chapter-title">{{ chapter.title }}</h3>

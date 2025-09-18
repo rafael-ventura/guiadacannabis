@@ -33,7 +33,7 @@
   height: 80vh;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 
+  box-shadow:
     0 0 20px rgba(0, 0, 0, 0.1),
     0 0 40px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -179,20 +179,20 @@
         border-radius: 0 100% 0 100%;
         opacity: 0.9;
 
-        &.leaf-1 { 
-          top: 0; 
-          left: 50%; 
-          transform: translateX(-50%) rotate(-15deg); 
+        &.leaf-1 {
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%) rotate(-15deg);
         }
-        &.leaf-2 { 
-          top: 5px; 
-          left: 15%; 
-          transform: rotate(15deg); 
+        &.leaf-2 {
+          top: 5px;
+          left: 15%;
+          transform: rotate(15deg);
         }
-        &.leaf-3 { 
-          top: 5px; 
-          right: 15%; 
-          transform: rotate(-15deg); 
+        &.leaf-3 {
+          top: 5px;
+          right: 15%;
+          transform: rotate(-15deg);
         }
       }
     }
